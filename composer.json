@@ -1,0 +1,46 @@
+{
+    "name": "stanislav-web/phalcon-ulogin",
+    "description": "Phalcon ULogin authorization widget.",
+    "type": "library",
+    "status": "maintained",
+    "keywords" : [
+        "phalcon",
+        "phalcon ulogin",
+        "phalcon ulogin widget"
+    ],
+    "support": {
+        "issues": "https://github.com/stanislav-web/phalcon-ulogin/issues"
+    },
+    "minimum-stability": "dev",
+    "homepage" : "https://github.com/stanislav-web/phalcon-ulogin",
+    "license" : "MIT",
+    "authors" : [{
+         "name": "Stanislav WEB",
+         "email": "stanisov@gmail.com",
+         "homepage": "http://reds.com",
+         "role": "Developer"
+    }],
+
+    "require" : {
+         "php" : ">=5.3"
+    },
+
+	"autoload": {
+		"psr-4": {
+            "ULogin\\": "src/ULogin"
+		},
+		"classmap": ["phpunit/src/ULogin"]
+	},
+
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\ULogin\\": "phpunit/src/ULogin"
+        }
+    },
+
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    }
+}
