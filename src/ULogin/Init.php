@@ -31,37 +31,45 @@ class Init {
     ];
 
     /**
-     * Available providers fields
+     * Available providers fields. Default has false attribute
+     * to disable required from auth services
+     *
      * @var array
      */
     private $fields  =   [
-        'first_name',
-        'last_name',
-        'photo',
-        'email',
-        'nickname',
-        'bdate',
-        'sex',
-        'photo_big',
-        'city',
-        'country'
+        'first_name'    =>  true,
+        'last_name'     =>  true,
+        'photo'         =>  true,
+        'email'         =>  false,
+        'nickname'      =>  false,
+        'bdate'         =>  false,
+        'sex'           =>  false,
+        'photo_big'     =>  false,
+        'city'          =>  false,
+        'country'       =>  false
     ];
 
     /**
-     * Available providers fields
+     * Widget types
      * @var array
      */
-    private $wiget  =   [
+    private $types  =   [
         'small',
         'panel',
         'window'
     ];
 
     /**
-     * Use callback function?
-     * @var boolean
+     * Widget. 'small' as default
+     * @var string
      */
-    private $callback =  false;
+    private $widget  =   'small';
+
+    /**
+     * Use callback url?
+     * @var string
+     */
+    private $callback = '';
 
     /**
      * Token key
@@ -95,7 +103,6 @@ class Init {
      * Allows you to add authentication providers in the list of available.
      *
      * @param mixed $providers as ('provider' => true, 'provider' => false) or string separated by comma
-     * @param bool $visible if the data providers should be hidden from the popup menu widget
      * @example <code>
      *          $this->setProviders([
      *              'vkontakte'     =>  true,
@@ -134,6 +141,76 @@ class Init {
         return $this;
     }
 
+    /**
+     * Allows you to add to the list of fields requested for the provider's authorization.
+     *
+     * @param mixed $fields as ('field' => true, 'field' => false) or string separated by comma
+     * @example <code>
+     *          $this->setFields([
+     *              'first_name'    =>  true,
+     *              'last_name'     =>  true,
+     *              'photo'         =>  false  // disabled
+     *          ]);
+     *
+     *          $this->setFields('first_name=true,last_name=true,photo=false');
+     *          </code>
+     * @return Init
+     */
+    public function setFields($fields) {
 
+        if(is_array($fields) === true) {
+            $this->providers    =   $fields;
+        }
+        else {
+            $fields = explode(',', trim($fields));
 
+            foreach($fields as $field) {
+
+                if(strpos($field,'=') === true) {
+                    $field = explode('=', $field);
+                    $this->fields[$field[0]]  =   $field[1];
+                }
+            }
+
+        }
+
+        return $this;
+
+    }
+
+    /**
+     * Lets you specify the widget type. Must match the variable `types`
+     *
+     * @param $type
+     * @example <code>
+     *          $this->setType('small');
+     *          </code>
+     * @return Init
+     */
+    public function setType($type) {
+
+        $this->types = array_flip($this->types);
+        if(isset($this->types[$type]) === true) {
+
+            $this->widget = $type;
+
+        }
+
+        return $this;
+    }
+
+    /**
+     * Lets you specify the callback url to redirect to when authorizing the page is reloaded.
+     * If the url is not specified and is used to redirect the authorization,
+     * the authorization after the current page just updated
+     *
+     * @param string $callback page that will be implemented to redirect after login
+     * @return $this
+     */
+    public function setCallback($callback) {
+
+        $this->callback = $callback;
+
+        return $this;
+    }
 }
