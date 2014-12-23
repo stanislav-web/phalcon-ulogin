@@ -20,13 +20,13 @@ class Init {
      * Got user data
      * @var boolean|array
      */
-    private $user = false;
+    protected $user = false;
 
     /**
      * Token key
      * @var boolean
      */
-    private $token =  false;
+    protected $token =  false;
 
     /**
      * Available auth providers. Default has false attribute
@@ -34,7 +34,7 @@ class Init {
      *
      * @var array
      */
-    public $providers  =   [
+    protected $providers  =   [
         'vkontakte'     =>  true,
         'odnoklassniki' =>  true,
         'mailru'        =>  false,
@@ -52,7 +52,7 @@ class Init {
      *
      * @var array
      */
-    public $fields  =   [
+    protected $fields  =   [
         'first_name'    =>  true,
         'last_name'     =>  true,
         'photo'         =>  true,
@@ -69,7 +69,7 @@ class Init {
      * Widget types
      * @var array
      */
-    public $types  =   [
+    protected $types  =   [
         'small',
         'panel',
         'window'
@@ -79,19 +79,19 @@ class Init {
      * Widget. 'small' as default
      * @var string
      */
-    public $widget  =   'small';
+    protected $widget  =   'small';
 
     /**
      * Use callback?
      * @var boolean|callback
      */
-    public $callback = false;
+    protected $callback = false;
 
     /**
      * Redirect url
      * @var boolean|string
      */
-    public $url = false;
+    protected $url = false;
 
     /**
      * Constructor. Allows you to specify the initial settings for the widget.
@@ -338,7 +338,6 @@ class Init {
             if($this->destroyUserData() === true) {
                 $this->logout();
             }
-
         }
 
         return $this->user;
@@ -379,7 +378,7 @@ class Init {
      *
      * @return View
      */
-    public function getWidget() {
+    public function getForm() {
 
         if($this->url === false) {
 
@@ -388,7 +387,13 @@ class Init {
 
         $view = new View();
 
-        return $view->getRender('views', 'ulogin', ['ulogin' => $this]);
+        return $view->getRender('views', 'ulogin', [
+            'widget'    => $this->widget,
+            'fields'    => $this->fields,
+            'providers' => $this->providers,
+            'url'       => $this->url,
+            'callback'  =>  callback
+        ]);
 
     }
 

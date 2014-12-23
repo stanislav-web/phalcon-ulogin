@@ -1,19 +1,21 @@
 {
     "name": "stanislav-web/phalcon-ulogin",
-    "description": "Phalcon ULogin authorization widget.",
+    "description": "Phalcon ULogin. The authorization form uLogin through social networks",
     "type": "library",
-    "status": "maintained",
     "keywords" : [
         "phalcon",
         "phalcon ulogin",
-        "phalcon ulogin widget"
+        "phalcon ulogin widget",
+        "ulogin",
+        "social",
+        "authorization"
     ],
     "support": {
         "issues": "https://github.com/stanislav-web/phalcon-ulogin/issues"
     },
     "minimum-stability": "dev",
     "homepage" : "https://github.com/stanislav-web/phalcon-ulogin",
-    "license" : "MIT",
+    "license" : "GPL3",
     "authors" : [{
          "name": "Stanislav WEB",
          "email": "stanisov@gmail.com",
