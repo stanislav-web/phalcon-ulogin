@@ -13,19 +13,21 @@ namespace ULogin;
 class Init {
 
     /**
-     * Available auth providers
+     * Available auth providers. Default has false attribute
+     * to disable view on drop down list
+     *
      * @var array
      */
     private $providers  =   [
-        'vkontakte',
-        'odnoklassniki',
-        'mailru',
-        'facebook',
-        'twitter',
-        'google',
-        'yandex',
-        'livejournal',
-        'openid'
+        'vkontakte'     =>  true,
+        'odnoklassniki' =>  true,
+        'mailru'        =>  false,
+        'facebook'      =>  true,
+        'twitter'       =>  false,
+        'google'        =>  true,
+        'yandex'        =>  true,
+        'livejournal'   =>  false,
+        'openid'        =>  false
     ];
 
     /**
@@ -67,9 +69,8 @@ class Init {
      */
     private $token =  false;
 
-
     /**
-     *Constructor. Allows you to specify the initial settings for the widget.
+     * Constructor. Allows you to specify the initial settings for the widget.
      * Parameters can be passed as an associative array.
      * Also, the parameters can be set using the appropriate methods
      *
@@ -78,11 +79,61 @@ class Init {
      */
     public function __construct(array $params = [])
     {
-        foreach($params as $key => $values) {
+        if(empty($params) === false) {
 
-            if(method_exists($this, 'set'.ucfirst($key)) === true) {
-                $this->{'set'.ucfirst($key)}($params[$key]);
+            foreach($params as $key => $values) {
+
+                if(method_exists($this, 'set'.ucfirst($key)) === true) {
+                    $this->{'set'.ucfirst($key)}($params[$key]);
+                }
             }
+
         }
     }
+
+    /**
+     * Allows you to add authentication providers in the list of available.
+     *
+     * @param mixed $providers as ('provider' => true, 'provider' => false) or string separated by comma
+     * @param bool $visible if the data providers should be hidden from the popup menu widget
+     * @example <code>
+     *          $this->setProviders([
+     *              'vkontakte'     =>  true,
+     *              'odnoklassniki' =>  true,
+     *              'mailru'        =>  false,  // in drop down
+     *              'facebook'      =>  true,
+     *              'twitter'       =>  false,  // in drop down
+     *              'google'        =>  true,
+     *              'yandex'        =>  true,
+     *              'livejournal'   =>  false,  // in drop down
+     *              'openid'        =>  false   // in drop down
+     *          ]);
+     *
+     *          $this->setProviders('vkontakte=true,odnoklassniki=true,mailru=false');
+     *          </code>
+     * @return Init
+     */
+    public function setProviders($providers) {
+
+        if(is_array($providers) === true) {
+            $this->providers    =   $providers;
+        }
+        else {
+            $providers = explode(',', trim($providers));
+
+            foreach($providers as $provider) {
+
+                if(strpos($provider,'=') === true) {
+                    $provider = explode('=', $provider);
+                    $this->providers[$provider[0]]  =   $provider[1];
+                }
+            }
+
+        }
+
+        return $this;
+    }
+
+
+
 }
