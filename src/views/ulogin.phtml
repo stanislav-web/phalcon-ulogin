@@ -1,0 +1,20 @@
+<!-- uLogin widget -->
+<?php if(isset($ulogin) === true): ?>
+    <?php if($ulogin->widget === 'window'): ?>
+        <a href="#" id="uLogin"><img src="http://ulogin.ru/img/button.png" width=187 height=30 alt="uLogin"/></a>
+    <?php else: ?>
+        <div id="uLogin"></div>
+    <?php endif;?>
+    <script src="http://ulogin.ru/js/widget.js
+        ?display=<?=$ulogin->widget; ?>
+        &fields=<?=implode(',',$ulogin->fields); ?>
+        &providers=<?=implode(',',$ulogin->providers); ?>
+        &hidden=<?=implode(',',$ulogin->providers); ?>
+        &redirect_uri=<?=$ulogin->url; ?>
+        <?php ($this->callback === true) ? '&callback='.$ulogin->callback : ''; ?>
+        ">
+    </script>
+<?php else: ?>
+    uLogin does not loaded
+<?php endif; ?>
+<!-- /uLogin widget -->

@@ -1,6 +1,10 @@
 <?php
 namespace ULogin;
 
+use \Phalcon\Http\Request;
+use \Phalcon\Mvc\Router;
+use \Phalcon\Mvc\View;
+
 /**
  * ULogin init class
  *
@@ -13,12 +17,24 @@ namespace ULogin;
 class Init {
 
     /**
+     * Got user data
+     * @var boolean|array
+     */
+    private $user = false;
+
+    /**
+     * Token key
+     * @var boolean
+     */
+    private $token =  false;
+
+    /**
      * Available auth providers. Default has false attribute
      * to disable view on drop down list
      *
      * @var array
      */
-    private $providers  =   [
+    public $providers  =   [
         'vkontakte'     =>  true,
         'odnoklassniki' =>  true,
         'mailru'        =>  false,
@@ -36,7 +52,7 @@ class Init {
      *
      * @var array
      */
-    private $fields  =   [
+    public $fields  =   [
         'first_name'    =>  true,
         'last_name'     =>  true,
         'photo'         =>  true,
@@ -53,7 +69,7 @@ class Init {
      * Widget types
      * @var array
      */
-    private $types  =   [
+    public $types  =   [
         'small',
         'panel',
         'window'
@@ -63,19 +79,19 @@ class Init {
      * Widget. 'small' as default
      * @var string
      */
-    private $widget  =   'small';
+    public $widget  =   'small';
 
     /**
-     * Use callback url?
-     * @var string
+     * Use callback?
+     * @var boolean|callback
      */
-    private $callback = '';
+    public $callback = false;
 
     /**
-     * Token key
-     * @var boolean
+     * Redirect url
+     * @var boolean|string
      */
-    private $token =  false;
+    public $url = false;
 
     /**
      * Constructor. Allows you to specify the initial settings for the widget.
@@ -204,13 +220,184 @@ class Init {
      * If the url is not specified and is used to redirect the authorization,
      * the authorization after the current page just updated
      *
-     * @param string $callback page that will be implemented to redirect after login
+     * @param string $url page that will be implemented to redirect after login
      * @return $this
      */
-    public function setCallback($callback) {
+    public function setUrl($url) {
 
-        $this->callback = $callback;
+        $this->url = $url;
 
         return $this;
+    }
+
+    /**
+     * Allows authentication without reloading the page.
+     * The parameters of this function can be defined in two ways:
+     *
+     * 1. The first parameter - the name of the js-function, which is passed as an argument token authentication.
+     * The second option - the page of your site,
+     * That displays the code returned by getWindow().
+     *
+     * 2. Single parameter - an array of two elements.
+     * The first element - the name of the js-function, the second - url for getWindow().
+     *
+     * Js-function should be organized in such a way that the token passed through
+     * POST or GET methods of the page on which is called.
+     * Method getUser() or isAuthorised().
+     *
+     * In the case of authorization without a referral is not necessary
+     * to specify the url to redirect through setUrl() method or constructor.
+     *
+     * @return null
+     */
+    public function setCallback() {
+
+        // get function arguments
+
+        $args   =   func_num_args();
+
+        if($args === 1
+            && is_array(func_get_arg(0)) === true
+            && count(func_get_arg(0)) > 1) {
+
+                $arg = func_get_arg(0);
+                $callback = $arg[0];
+                $url = $arg[1];
+
+        }
+        else if($args === 2) {
+
+            $callback = func_get_arg(0);
+            $url = func_get_arg(1);
+        }
+
+        $this->callback = $callback;
+        $this->url = $url;
+
+        return null;
+    }
+
+    /**
+     * Destroy user data
+     *
+     * @return bool
+     */
+    private function destroyUserData() {
+
+        if(is_array($this->user) === true
+            && isset($this->user["error"]) === true) {
+            $this->user = false;
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Reads the parameters passed to the script, and selects the authorization key ULogin
+     *
+     * @return bool|mixed
+     */
+    protected function getToken() {
+
+        $request = new Request();
+
+        if($request->isPost() && $request->hasPost('token')) {
+            $this->token = $request->getPost('token', null, false);
+        }
+        else if($request->isGet() && $request->has('token')) {
+            $this->token = $request->getQuery('token', null, false);
+        }
+
+        return $this->token;
+    }
+
+    /**
+     * Returns an associative array with the data about the user.
+     * Fields array described in the method setFields
+     *
+     * @example <code>
+     *          $this->getUser();
+     *          </code>
+     *
+     * @return array|bool|mixed data provided by the ISP login
+     */
+    public function getUser() {
+
+        // destroy previous content
+        $this->destroyUserData();
+
+        if($this->user === false) {
+
+            // get user
+
+            $url = 'http://ulogin.ru/token.php?token=' . $this->getToken() . '&host=' . (new Request())->getHttpHost();
+            $content = file_get_contents($url);
+            $this->user =   json_decode($content, true);
+
+            // if use has error , destroy user data
+            if($this->destroyUserData() === true) {
+                $this->logout();
+            }
+
+        }
+
+        return $this->user;
+    }
+
+    /**
+     * Checks whether logon
+     *
+     * @return array|bool|mixed
+     */
+    protected function isAuthorised() {
+
+        if(is_array($this->user) === true
+            && isset($this->user['error']) === false) {
+
+            return true;
+        }
+
+        return $this->getUser();
+    }
+
+    /**
+     * Allows the user to exit from the system
+     *
+     * @return null
+     */
+    protected function logout() {
+
+        $this->token    =   false;
+        $this->user     =   false;
+
+        return null;
+
+    }
+
+    /**
+     * Returns the html-code widget
+     *
+     * @return View
+     */
+    public function getWidget() {
+
+        if($this->url === false) {
+
+            $this->url = (new Router())->getRewriteUri();
+        }
+
+        $view = new View();
+
+        return $view->getRender('views', 'ulogin', ['ulogin' => $this]);
+
+    }
+
+    /**
+     * Returns the code necessary to authenticate without reloading the page
+     * @return View
+     */
+    public function getWindow() {
+
+        return (new View())->getRender('views', 'window');
     }
 }
