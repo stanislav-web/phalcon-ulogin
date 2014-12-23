@@ -374,7 +374,7 @@ class Init {
     }
 
     /**
-     * Returns the html-code widget
+     * Returns the html-form widget
      *
      * @return View
      */
@@ -392,7 +392,7 @@ class Init {
             'fields'    => $this->fields,
             'providers' => $this->providers,
             'url'       => $this->url,
-            'callback'  =>  callback
+            'callback'  => $this->callback
         ]);
 
     }
