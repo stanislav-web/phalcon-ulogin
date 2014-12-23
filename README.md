@@ -20,6 +20,9 @@ Unavailable
 ```
 ## Usage
 ```
+                $ulogin = new \ULogin\Auth();
+                echo '<pre>';
+                var_dump($ulogin->getForm());
 Unavailable
 ```
 ## Unit Test

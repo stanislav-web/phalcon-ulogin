@@ -1,7 +1,7 @@
 <?php
 namespace ULogin;
-use Phalcon\Session\Exception;
-
+use \Phalcon\Session\Exception;
+use \Phalcon\DI;
 /**
  * ULogin init class
  *
@@ -11,7 +11,7 @@ use Phalcon\Session\Exception;
  * @author    Stanislav WEB | Lugansk <stanisov@gmail.com>
  * @copyright Stanislav WEB
  */
-class Auth extends Init implements \Phalcon\DI\InjectionAwareInterface {
+class Auth extends Init {
 
     /**
      * @const KEY ulogin uid
@@ -19,31 +19,9 @@ class Auth extends Init implements \Phalcon\DI\InjectionAwareInterface {
     const KEY   =   'ulogin';
 
     /**
-     * @var \Phalcon\DiInterface $di
-     */
-    protected $di;
-
-    /**
      * @var callable $session
      */
     protected $session;
-
-    /**
-     * @param \Phalcon\DiInterface $di
-     * @return null
-     */
-    public function setDi($di) {
-        $this->_di = $di;
-
-        return null;
-    }
-
-    /**
-     * @return \Phalcon\DiInterface
-     */
-    public function getDi() {
-        return $this->_di;
-    }
 
     /**
      * Constructor. Allows you to specify the initial settings for the widget.
@@ -57,10 +35,10 @@ class Auth extends Init implements \Phalcon\DI\InjectionAwareInterface {
     {
         parent::__construct($params);
 
-        if($this->di->has('session') === true) {
+        if(DI::getDefault()->has('session') === true) {
 
             // get instance of session class
-            $this->session = $this->di->get('session');
+            $this->session = DI::getDefault()->getSession();
 
             if($this->session->getId() === '') {
                 $this->session->start();
