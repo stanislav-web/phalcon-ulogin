@@ -18,10 +18,9 @@ First update your dependencies through composer. Add to your composer.json:
     "stanislav-web/phalcon-ulogin": "dev-master",
 }
 ```
-Then run to update dependency and autoloader 
+OR
 ```python
-php composer.phar update
-php composer.phar install
+php composer.phar require stanislav-web/phalcon-ulogin dev-master
 ```
 _(Do not forget to include the composer autoloader)_
 
