@@ -7,7 +7,7 @@ use Phalcon\Di;
  * ULogin init class
  *
  * @package   ULogin
- * @since     PHP >=5.5.12
+ * @since     PHP >=5.4.28
  * @version   1.0
  * @author    Stanislav WEB | Lugansk <stanisov@gmail.com>
  * @copyright Stanislav WEB
