@@ -2,6 +2,8 @@
 
 Phalcon ULogin. The authorization form uLogin through social networks
 
+[![ULogin](https://ulogin.ru/img/feat1.png)](https://ulogin.ru)
+
 ## Compatible
 - PSR-0, PSR-1, PSR-2, PSR-4 Standards
 
