@@ -14,81 +14,87 @@ use Phalcon\Di;
  */
 class Auth extends Init {
 
-	/**
-	 * @const KEY ulogin uid
-	 */
-	const KEY   =   'ulogin';
+    /**
+     * @const KEY ulogin uid
+     */
+    const KEY   =   'ulogin';
 
-	/**
-	 * @var callable $session
-	 */
-	protected $session;
+    /**
+     * @var callable $session
+     */
+    protected $session;
 
-	/**
-	 * Constructor. Allows you to specify the initial settings for the widget.
-	 * Parameters can be passed as an associative array.
-	 * Also, the parameters can be set using the appropriate methods
-	 *
-	 * @param array $params
-	 * @return void
-	 */
-	public function __construct(array $params = [])
-	{
-		parent::__construct($params);
+    /**
+     * Constructor. Allows you to specify the initial settings for the widget.
+     * Parameters can be passed as an associative array.
+     * Also, the parameters can be set using the appropriate methods
+     *
+     * @param array $params
+     * @return void
+     */
+    public function __construct(array $params = [])
+    {
+        if(DI::getDefault() === null) {
+            throw new \Phalcon\DI\Exception('DI is not configured!');
+        }
 
-		if(DI::getDefault()->has('session') === true) {
+        parent::__construct($params);
 
-			// get instance of session class
-			$this->session = DI::getDefault()->getSession();
+        if(DI::getDefault()->has('session') === true) {
 
-			if($this->session->getId() === '') {
-				$this->session->start();
-			}
+            // get instance of session class
+            $this->session = DI::getDefault()->getSession();
 
-			if($this->session->has(self::KEY) === true) {
+            if($this->session->getId() === '') {
+                $this->session->start();
+            }
 
-				$this->user = $this->session->get(self::KEY);
-			}
-			else {
-				$this->user = false;
-			}
-		}
-		else {
+            if($this->session->has(self::KEY) === true) {
 
-			throw new Exception('Session does not configured in DI');
-		}
-	}
+                $this->user = $this->session->get(self::KEY);
+            }
+            else {
+                $this->user = false;
+            }
+        }
+        else {
+
+            throw new Exception('Session does not configured in DI');
+        }
+    }
 
     /**
      * Returns an associative array with the data about the user.
-     * Fields array described in the method setFields
+     * Fields array described in the method Init::setFields
+     *
      * @example <code>
      *          $this->getUser();
      *          </code>
-	 *
-	 * @return array data provided by the ISP login
-	 */
-	public function getUser() {
+     *
+     * @return array  data provided by the ISP authentication
+     */
+    public function getUser() {
 
-		if($this->user === false) {
+        if($this->user === false) {
 
-			$this->session->set(self::KEY, parent::getUser());
-		}
+            $this->session->remove(self::KEY);
+            $this->session->set(self::KEY, parent::getUser());
+        }
 
-		return $this->user;
-	}
+        return $this->user;
+    }
+
 
     /**
      * User logout
      *
      * @return null
-	 */
-	public function logout() {
-		parent::logout();
+     */
+    public function logout() {
+        parent::logout();
+        $this->session->remove(self::KEY);
 
-		$this->session->remove(self::KEY);
-
-        return null;
-	}
+        return false;
+    }
 
 }
