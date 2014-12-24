@@ -3,7 +3,7 @@ namespace ULogin;
 
 use \Phalcon\Http\Request;
 use \Phalcon\Mvc\Router;
-use \Phalcon\Mvc\View;
+use \Phalcon\Mvc\View\Simple as View;
 
 /**
  * ULogin init class
@@ -34,7 +34,7 @@ class Init {
      *
      * @var array
      */
-    protected $providers  =   [
+    private $providers  =   [
         'vkontakte'     =>  true,
         'odnoklassniki' =>  true,
         'mailru'        =>  false,
@@ -47,22 +47,29 @@ class Init {
     ];
 
     /**
-     * Available providers fields. Default has false attribute
-     * to disable required from auth services
+     * Required providers fields.
      *
      * @var array
      */
-    protected $fields  =   [
-        'first_name'    =>  true,
-        'last_name'     =>  true,
-        'photo'         =>  true,
-        'email'         =>  false,
-        'nickname'      =>  false,
-        'bdate'         =>  false,
-        'sex'           =>  false,
-        'photo_big'     =>  false,
-        'city'          =>  false,
-        'country'       =>  false
+    private $requiredFields  =   [
+        'first_name',
+        'last_name',
+        'photo'
+    ];
+
+    /**
+     * Optional (additional) fields providers fields.
+     *
+     * @var array
+     */
+    private $optionalFields = [
+        'email',
+        'nickname',
+        'bdate',
+        'sex',
+        'photo_big',
+        'city',
+        'country'
     ];
 
     /**
@@ -79,19 +86,13 @@ class Init {
      * Widget. 'small' as default
      * @var string
      */
-    protected $widget  =   'small';
-
-    /**
-     * Use callback?
-     * @var boolean|callback
-     */
-    protected $callback = false;
+    private $widget  =   'small';
 
     /**
      * Redirect url
      * @var boolean|string
      */
-    protected $url = false;
+    private $url = false;
 
     /**
      * Constructor. Allows you to specify the initial settings for the widget.
@@ -142,13 +143,16 @@ class Init {
             $this->providers    =   $providers;
         }
         else {
+            $this->providers = [];
+
             $providers = explode(',', trim($providers));
 
             foreach($providers as $provider) {
 
-                if(strpos($provider,'=') === true) {
+                if(mb_strpos($provider,"=") !== false) {
+
                     $provider = explode('=', $provider);
-                    $this->providers[$provider[0]]  =   $provider[1];
+                    $this->providers[$provider[0]]  =   ($provider[1] === 'true') ? true : false;
                 }
             }
 
@@ -158,40 +162,146 @@ class Init {
     }
 
     /**
+     * Get social providers
+     *
+     * @return string
+     */
+    private function getProviders() {
+
+        if(is_array($this->providers) === true) {
+
+            $providers = $this->providers;
+            unset($this->providers);
+
+            foreach($providers as $provider => $mode) {
+
+                if(true === $mode) {
+                    $this->providers['required'][] = $provider;
+                }
+                else {
+                    $this->providers['hidden'][] = $provider;
+                }
+            }
+
+            $result = new \StdClass();
+
+            if(isset($this->providers['required']) === true) {
+
+                $result->required	=	join(',', $this->providers['required']);
+
+            }
+            else {
+
+                $result->required = '';
+            }
+
+            if(isset($this->providers['hidden']) === true) {
+
+                $result->hidden	=	join(',', $this->providers['hidden']);
+
+            }
+            else {
+
+                $result->hidden ='';
+            }
+
+        }
+
+        return $result;
+    }
+
+    /**
      * Allows you to add to the list of fields requested for the provider's authorization.
      *
-     * @param mixed $fields as ('field' => true, 'field' => false) or string separated by comma
+     * @param mixed $fields as ('field1', 'field2', ...) or string separated by comma
      * @example <code>
      *          $this->setFields([
-     *              'first_name'    =>  true,
-     *              'last_name'     =>  true,
-     *              'photo'         =>  false  // disabled
+     *              'first_name',
+     *              'last_name',
+     *              'photo'
      *          ]);
      *
-     *          $this->setFields('first_name=true,last_name=true,photo=false');
+     *          $this->setFields('first_name,last_name,photo');
      *          </code>
      * @return Init
      */
     public function setFields($fields) {
 
         if(is_array($fields) === true) {
-            $this->providers    =   $fields;
+            $this->requiredFields    =   $fields;
         }
         else {
             $fields = explode(',', trim($fields));
 
             foreach($fields as $field) {
-
-                if(strpos($field,'=') === true) {
-                    $field = explode('=', $field);
-                    $this->fields[$field[0]]  =   $field[1];
-                }
+                $this->requiredFields[]  =   trim($field);
             }
 
         }
 
         return $this;
 
+    }
+
+    /**
+     * Get user's fields
+     *
+     * @return string
+     */
+    private function getFields() {
+
+        if(is_array($this->requiredFields) === true) {
+            $this->requiredFields	=	implode(',',$this->requiredFields);
+        }
+
+        return $this->requiredFields;
+    }
+
+    /**
+     * Allows you to add to the list of optionals fields.
+     *
+     * @param mixed $fields as ('field1', 'field2', ...) or string separated by comma
+     * @example <code>
+     *          $this->setOptional([
+     *              'bday',
+     *              'city',
+     *              'sex'
+     *          ]);
+     *
+     *          $this->setOptional('bday,city,sex');
+     *          </code>
+     * @return Init
+     */
+    public function setOptional($fields) {
+
+        if(is_array($fields) === true) {
+            $this->optionalFields    =   $fields;
+        }
+        else {
+            $fields = explode(',', trim($fields));
+
+            foreach($fields as $field) {
+                $this->optionalFields[]  =   trim($field);
+            }
+
+        }
+
+        return $this;
+
+    }
+
+    /**
+     * Get user's (optional) fields
+     *
+     * @return string
+     */
+    private function getOptional() {
+
+        if(is_array($this->optionalFields) === true) {
+            $this->optionalFields	=	implode(',',$this->optionalFields);
+        }
+
+        return $this->optionalFields;
     }
 
     /**
@@ -231,50 +341,24 @@ class Init {
     }
 
     /**
-     * Allows authentication without reloading the page.
-     * The parameters of this function can be defined in two ways:
+     * Get redirect url
      *
-     * 1. The first parameter - the name of the js-function, which is passed as an argument token authentication.
-     * The second option - the page of your site,
-     * That displays the code returned by getWindow().
-     *
-     * 2. Single parameter - an array of two elements.
-     * The first element - the name of the js-function, the second - url for getWindow().
-     *
-     * Js-function should be organized in such a way that the token passed through
-     * POST or GET methods of the page on which is called.
-     * Method getUser() or isAuthorised().
-     *
-     * In the case of authorization without a referral is not necessary
-     * to specify the url to redirect through setUrl() method or constructor.
-     *
-     * @return null
+     * @return string
      */
-    public function setCallback() {
+    private function getUrl() {
 
-        // get function arguments
+        $request = new Request();
 
-        $args   =   func_num_args();
+        if($this->url === false) {
 
-        if($args === 1
-            && is_array(func_get_arg(0)) === true
-            && count(func_get_arg(0)) > 1) {
-
-                $arg = func_get_arg(0);
-                $callback = $arg[0];
-                $url = $arg[1];
-
+            $this->url =
+                $request->getScheme() . '://'. $request->getHttpHost() . (new Router())->getRewriteUri();
         }
-        else if($args === 2) {
-
-            $callback = func_get_arg(0);
-            $url = func_get_arg(1);
+        else {
+            $this->url =
+                $request->getScheme() . '://'. $request->getHttpHost().$this->url;
         }
-
-        $this->callback = $callback;
-        $this->url = $url;
-
-        return null;
+        return $this->url;
     }
 
     /**
@@ -297,7 +381,7 @@ class Init {
      *
      * @return bool|mixed
      */
-    protected function getToken() {
+    public function getToken() {
 
         $request = new Request();
 
@@ -348,7 +432,7 @@ class Init {
      *
      * @return array|bool|mixed
      */
-    protected function isAuthorised() {
+    public function isAuthorised() {
 
         if(is_array($this->user) === true
             && isset($this->user['error']) === false) {
@@ -380,29 +464,18 @@ class Init {
      */
     public function getForm() {
 
-        if($this->url === false) {
-
-            $this->url = (new Router())->getRewriteUri();
-        }
-
         $view = new View();
 
-        return $view->getRender('views', 'ulogin', [
+        $providers = $this->getProviders();
+
+        return $view->render(__DIR__.'/../views/ulogin', [
             'widget'    => $this->widget,
-            'fields'    => $this->fields,
-            'providers' => $this->providers,
-            'url'       => $this->url,
-            'callback'  => $this->callback
+            'fields'    => $this->getFields(),
+            'optional'  => $this->getOptional(),
+            'providers' => $providers->required,
+            'hidden' 	=> $providers->hidden,
+            'url'       => $this->getUrl()
         ]);
 
-    }
-
-    /**
-     * Returns the code necessary to authenticate without reloading the page
-     * @return View
-     */
-    public function getWindow() {
-
-        return (new View())->getRender('views', 'window');
     }
 }

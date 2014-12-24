@@ -1,6 +1,7 @@
 <?php
 namespace ULogin;
 use Phalcon\Session\Exception;
+use Phalcon\Di;
 
 /**
  * ULogin init class
@@ -11,7 +12,7 @@ use Phalcon\Session\Exception;
  * @author    Stanislav WEB | Lugansk <stanisov@gmail.com>
  * @copyright Stanislav WEB
  */
-class Auth extends Init implements \Phalcon\DI\InjectionAwareInterface {
+class Auth extends Init {
 
     /**
      * @const KEY ulogin uid
@@ -19,31 +20,9 @@ class Auth extends Init implements \Phalcon\DI\InjectionAwareInterface {
     const KEY   =   'ulogin';
 
     /**
-     * @var \Phalcon\DiInterface $di
-     */
-    protected $di;
-
-    /**
      * @var callable $session
      */
     protected $session;
-
-    /**
-     * @param \Phalcon\DiInterface $di
-     * @return null
-     */
-    public function setDi($di) {
-        $this->_di = $di;
-
-        return null;
-    }
-
-    /**
-     * @return \Phalcon\DiInterface
-     */
-    public function getDi() {
-        return $this->_di;
-    }
 
     /**
      * Constructor. Allows you to specify the initial settings for the widget.
@@ -55,12 +34,16 @@ class Auth extends Init implements \Phalcon\DI\InjectionAwareInterface {
      */
     public function __construct(array $params = [])
     {
+        if(DI::getDefault() === null) {
+            throw new \Phalcon\DI\Exception('DI is not configured!');
+        }
+
         parent::__construct($params);
 
-        if($this->di->has('session') === true) {
+        if(DI::getDefault()->has('session') === true) {
 
             // get instance of session class
-            $this->session = $this->di->get('session');
+            $this->session = DI::getDefault()->getSession();
 
             if($this->session->getId() === '') {
                 $this->session->start();
@@ -80,17 +63,21 @@ class Auth extends Init implements \Phalcon\DI\InjectionAwareInterface {
         }
     }
 
-    /** Возвращает ассоциативный массив с данными о пользователе. Поля массива описаны в методе set_fields
-     * \result данные о пользователе от провайдера авторизации
+    /**
+     * Returns an associative array with the data about the user.
+     * Fields array described in the method Init::setFields
      *
-     * Пример: $userdata=$this->uauth->userdata();
+     * @example <code>
+     *          $this->getUser();
+     *          </code>
      *
-     * $userdata содержит данные, предоставленные провайдером авторизации.
+     * @return array  data provided by the ISP authentication
      */
     public function getUser() {
 
         if($this->user === false) {
 
+            $this->session->remove(self::KEY);
             $this->session->set(self::KEY, parent::getUser());
         }
 
@@ -98,11 +85,16 @@ class Auth extends Init implements \Phalcon\DI\InjectionAwareInterface {
     }
 
 
-    /** Завершает сессию и очищает сохраненные переменные
+    /**
+     * User logout
+     *
+     * @return null
      */
     public function logout() {
         parent::logout();
         $this->session->remove(self::KEY);
+
+        return false;
     }
 
 }

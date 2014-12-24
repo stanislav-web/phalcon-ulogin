@@ -1,16 +1,17 @@
+<script src="//ulogin.ru/js/ulogin.js"></script>
 <!-- uLogin widget -->
 <?php if($widget === 'window'): ?>
-    <a href="#" id="uLogin"><img src="http://ulogin.ru/img/button.png" width=187 height=30 alt="uLogin"/></a>
+    <a
+       href="#"
+       id="uLogin"
+       data-ulogin="display=<?=$widget; ?>;fields=<?=$fields; ?>;providers=<?=$providers; ?>;hidden=<?=$hidden; ?>;redirect_uri=http://<?=$url; ?>"
+       >
+        <img src="http://ulogin.ru/img/button.png" width=187 height=30 alt="uLogin"/>
+    </a>
 <?php else: ?>
-    <div id="uLogin"></div>
+    <div
+        id="uLogin"
+        data-ulogin="display=<?=$widget; ?>;fields=<?=$fields; ?>;providers=<?=$providers; ?>;hidden=<?=$hidden; ?>;redirect_uri=<?=$url; ?>"
+    ></div>
 <?php endif;?>
-<script src="http://ulogin.ru/js/widget.js
-        ?display=<?=$widget; ?>
-        &fields=<?=implode(',',$fields); ?>
-        &providers=<?=implode(',',$providers); ?>
-        &hidden=<?=implode(',',$providers); ?>
-        &redirect_uri=<?=$url; ?>
-        <?php ($callback === true) ? '&callback='.$callback : ''; ?>
-        ">
-</script>
 <!-- /uLogin widget -->
