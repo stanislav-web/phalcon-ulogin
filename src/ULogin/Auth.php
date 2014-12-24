@@ -1,7 +1,6 @@
 <?php
 namespace ULogin;
-use Phalcon\Session\Exception;
-
+use \Phalcon\DI;
 /**
  * ULogin init class
  *
@@ -11,98 +10,76 @@ use Phalcon\Session\Exception;
  * @author    Stanislav WEB | Lugansk <stanisov@gmail.com>
  * @copyright Stanislav WEB
  */
-class Auth extends Init implements \Phalcon\DI\InjectionAwareInterface {
+class Auth extends Init {
 
-    /**
-     * @const KEY ulogin uid
-     */
-    const KEY   =   'ulogin';
+	/**
+	 * @const KEY ulogin uid
+	 */
+	const KEY   =   'ulogin';
 
-    /**
-     * @var \Phalcon\DiInterface $di
-     */
-    protected $di;
+	/**
+	 * @var callable $session
+	 */
+	protected $session;
 
-    /**
-     * @var callable $session
-     */
-    protected $session;
+	/**
+	 * Constructor. Allows you to specify the initial settings for the widget.
+	 * Parameters can be passed as an associative array.
+	 * Also, the parameters can be set using the appropriate methods
+	 *
+	 * @param array $params
+	 * @return void
+	 */
+	public function __construct(array $params = [])
+	{
+		parent::__construct($params);
 
-    /**
-     * @param \Phalcon\DiInterface $di
-     * @return null
-     */
-    public function setDi($di) {
-        $this->_di = $di;
+		if(DI::getDefault()->has('session') === true) {
 
-        return null;
-    }
+			// get instance of session class
+			$this->session = DI::getDefault()->getSession();
 
-    /**
-     * @return \Phalcon\DiInterface
-     */
-    public function getDi() {
-        return $this->_di;
-    }
+			if($this->session->getId() === '') {
+				$this->session->start();
+			}
 
-    /**
-     * Constructor. Allows you to specify the initial settings for the widget.
-     * Parameters can be passed as an associative array.
-     * Also, the parameters can be set using the appropriate methods
-     *
-     * @param array $params
-     * @return void
-     */
-    public function __construct(array $params = [])
-    {
-        parent::__construct($params);
+			if($this->session->has(self::KEY) === true) {
 
-        if($this->di->has('session') === true) {
+				$this->user = $this->session->get(self::KEY);
+			}
+			else {
+				$this->user = false;
+			}
+		}
+		else {
 
-            // get instance of session class
-            $this->session = $this->di->get('session');
+			throw new Exception('Session does not configured in DI');
+		}
+	}
 
-            if($this->session->getId() === '') {
-                $this->session->start();
-            }
+	/** Возвращает ассоциативный массив с данными о пользователе. Поля массива описаны в методе set_fields
+	 * \result данные о пользователе от провайдера авторизации
+	 *
+	 * Пример: $userdata=$this->uauth->userdata();
+	 *
+	 * $userdata содержит данные, предоставленные провайдером авторизации.
+	 */
+	public function getUser() {
 
-            if($this->session->has(self::KEY) === true) {
+		if($this->user === false) {
 
-                $this->user = $this->session->get(self::KEY);
-            }
-            else {
-                $this->user = false;
-            }
-        }
-        else {
+			$this->session->set(self::KEY, parent::getUser());
+		}
 
-            throw new Exception('Session does not configured in DI');
-        }
-    }
-
-    /** Возвращает ассоциативный массив с данными о пользователе. Поля массива описаны в методе set_fields
-     * \result данные о пользователе от провайдера авторизации
-     *
-     * Пример: $userdata=$this->uauth->userdata();
-     *
-     * $userdata содержит данные, предоставленные провайдером авторизации.
-     */
-    public function getUser() {
-
-        if($this->user === false) {
-
-            $this->session->set(self::KEY, parent::getUser());
-        }
-
-        return $this->user;
-    }
+		return $this->user;
+	}
 
 
-    /** Завершает сессию и очищает сохраненные переменные
-     */
-    public function logout() {
-        parent::logout();
-        $this->session->remove(self::KEY);
-    }
+	/** Завершает сессию и очищает сохраненные переменные
+	 */
+	public function logout() {
+		parent::logout();
+		$this->session->remove(self::KEY);
+	}
 
 }

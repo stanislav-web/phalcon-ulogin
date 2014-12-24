@@ -3,7 +3,7 @@ namespace ULogin;
 
 use \Phalcon\Http\Request;
 use \Phalcon\Mvc\Router;
-use \Phalcon\Mvc\View;
+use \Phalcon\Mvc\View\Simple as View;
 
 /**
  * ULogin init class
@@ -34,7 +34,7 @@ class Init {
      *
      * @var array
      */
-    protected $providers  =   [
+	private $providers  =   [
         'vkontakte'     =>  true,
         'odnoklassniki' =>  true,
         'mailru'        =>  false,
@@ -47,23 +47,30 @@ class Init {
     ];
 
     /**
-     * Available providers fields. Default has false attribute
-     * to disable required from auth services
+     * Required providers fields.
      *
      * @var array
      */
-    protected $fields  =   [
-        'first_name'    =>  true,
-        'last_name'     =>  true,
-        'photo'         =>  true,
-        'email'         =>  false,
-        'nickname'      =>  false,
-        'bdate'         =>  false,
-        'sex'           =>  false,
-        'photo_big'     =>  false,
-        'city'          =>  false,
-        'country'       =>  false
+    private $requiredFields  =   [
+        'first_name',
+        'last_name',
+        'photo'
     ];
+
+	/**
+	 * Optional (additional) fields providers fields.
+	 *
+	 * @var array
+	 */
+	private $optionalFields = [
+		'email',
+		'nickname',
+		'bdate',
+		'sex',
+		'photo_big',
+		'city',
+		'country'
+	];
 
     /**
      * Widget types
@@ -79,7 +86,7 @@ class Init {
      * Widget. 'small' as default
      * @var string
      */
-    protected $widget  =   'small';
+    private $widget  =   'small';
 
     /**
      * Use callback?
@@ -91,7 +98,7 @@ class Init {
      * Redirect url
      * @var boolean|string
      */
-    protected $url = false;
+	private $url = false;
 
     /**
      * Constructor. Allows you to specify the initial settings for the widget.
@@ -139,7 +146,7 @@ class Init {
     public function setProviders($providers) {
 
         if(is_array($providers) === true) {
-            $this->providers    =   $providers;
+            $this->providers    =   array_keys($providers);
         }
         else {
             $providers = explode(',', trim($providers));
@@ -157,35 +164,60 @@ class Init {
         return $this;
     }
 
+	/**
+	 * Get social providers
+	 *
+	 * @return string
+	 */
+	public function getProviders() {
+
+		if(is_array($this->providers) === true) {
+
+			$providers = $this->providers;
+			unset($this->providers);
+			foreach($providers as $provider => $mode) {
+
+				if(true === $mode) {
+					$this->providers['required'][] = $provider;
+				}
+				else {
+					$this->providers['hidden'][] = $provider;
+				}
+			}
+
+			$result = new \StdClass();
+			$result->required	=	join(',', $this->providers['required']);
+			$result->hidden		=	join(',', $this->providers['hidden']);
+		}
+
+		return $result;
+	}
+
     /**
      * Allows you to add to the list of fields requested for the provider's authorization.
      *
-     * @param mixed $fields as ('field' => true, 'field' => false) or string separated by comma
+     * @param mixed $fields as ('field1', 'field2', ...) or string separated by comma
      * @example <code>
      *          $this->setFields([
-     *              'first_name'    =>  true,
-     *              'last_name'     =>  true,
-     *              'photo'         =>  false  // disabled
+     *              'first_name',
+     *              'last_name',
+     *              'photo'
      *          ]);
      *
-     *          $this->setFields('first_name=true,last_name=true,photo=false');
+     *          $this->setFields('first_name,last_name,photo');
      *          </code>
      * @return Init
      */
     public function setFields($fields) {
 
         if(is_array($fields) === true) {
-            $this->providers    =   $fields;
+            $this->requiredFields    =   $fields;
         }
         else {
             $fields = explode(',', trim($fields));
 
             foreach($fields as $field) {
-
-                if(strpos($field,'=') === true) {
-                    $field = explode('=', $field);
-                    $this->fields[$field[0]]  =   $field[1];
-                }
+                $this->requiredFields[]  =   trim($field);
             }
 
         }
@@ -193,6 +225,67 @@ class Init {
         return $this;
 
     }
+
+	/**
+	 * Get user's fields
+	 *
+	 * @return string
+	 */
+	public function getFields() {
+
+		if(is_array($this->requiredFields) === true) {
+			$this->requiredFields	=	implode(',',$this->requiredFields);
+		}
+
+		return $this->requiredFields;
+	}
+
+	/**
+	 * Allows you to add to the list of optionals fields.
+	 *
+	 * @param mixed $fields as ('field1', 'field2', ...) or string separated by comma
+	 * @example <code>
+	 *          $this->setOptional([
+	 *              'bday',
+	 *              'city',
+	 *              'sex'
+	 *          ]);
+	 *
+	 *          $this->setOptional('bday,city,sex');
+	 *          </code>
+	 * @return Init
+	 */
+	public function setOptional($fields) {
+
+		if(is_array($fields) === true) {
+			$this->optionalFields    =   $fields;
+		}
+		else {
+			$fields = explode(',', trim($fields));
+
+			foreach($fields as $field) {
+				$this->optionalFields[]  =   trim($field);
+			}
+
+		}
+
+		return $this;
+
+	}
+
+	/**
+	 * Get user's (optional) fields
+	 *
+	 * @return string
+	 */
+	public function getOptional() {
+
+		if(is_array($this->optionalFields) === true) {
+			$this->optionalFields	=	implode(',',$this->optionalFields);
+		}
+
+		return $this->optionalFields;
+	}
 
     /**
      * Lets you specify the widget type. Must match the variable `types`
@@ -229,6 +322,20 @@ class Init {
 
         return $this;
     }
+
+	/**
+	 * Get redirect url
+	 *
+	 * @return string
+	 */
+	public function getUrl() {
+
+		if($this->url === false) {
+			$this->url =
+				(new Request())->getHttpHost().(new Router())->getRewriteUri();
+		}
+		return $this->url;
+	}
 
     /**
      * Allows authentication without reloading the page.
@@ -380,18 +487,17 @@ class Init {
      */
     public function getForm() {
 
-        if($this->url === false) {
-
-            $this->url = (new Router())->getRewriteUri();
-        }
-
         $view = new View();
 
-        return $view->getRender('views', 'ulogin', [
+		$providers = $this->getProviders();
+
+        return $view->render(__DIR__.'/../views/ulogin', [
             'widget'    => $this->widget,
-            'fields'    => $this->fields,
-            'providers' => $this->providers,
-            'url'       => $this->url,
+			'fields'    => $this->getFields(),
+			'optional'  => $this->getOptional(),
+			'providers' => $providers->required,
+			'hidden' 	=> $providers->hidden,
+            'url'       => $this->getUrl(),
             'callback'  => $this->callback
         ]);
 
@@ -403,6 +509,6 @@ class Init {
      */
     public function getWindow() {
 
-        return (new View())->getRender('views', 'window');
+        return (new View())->render(__DIR__.'/../views/window');
     }
 }
