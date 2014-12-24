@@ -6,20 +6,4 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'ULogin\\Builder' => $baseDir . '/src/ULogin/Builder.php',
-    'ULogin\\ULogin' => $baseDir . '/src/ULogin/Init.php',
-    'ULogin\\ULogin\\Aware\\ExceptionInterface' => $baseDir . '/src/ULogin/Aware/ExceptionInterface.php',
-    'ULogin\\ULogin\\Aware\\HydratorInterface' => $baseDir . '/src/ULogin/Aware/HydratorInterface.php',
-    'ULogin\\ULogin\\Exceptions\\Column' => $baseDir . '/src/ULogin/Exceptions/Column.php',
-    'ULogin\\ULogin\\Exceptions\\DataType' => $baseDir . '/src/ULogin/Exceptions/DataType.php',
-    'ULogin\\ULogin\\Exceptions\\InvalidLength' => $baseDir . '/src/ULogin/Exceptions/InvalidLength.php',
-    'ULogin\\ULogin\\Exceptions\\Model' => $baseDir . '/src/ULogin/Exceptions/Model.php',
-    'ULogin\\ULogin\\Factories\\ExceptionFactory' => $baseDir . '/src/ULogin/Factories/ExceptionFactory.php',
-    'ULogin\\ULogin\\Hydrators\\ArrayHydrator' => $baseDir . '/src/ULogin/Hydrators/ArrayHydrator.php',
-    'ULogin\\ULogin\\Hydrators\\JsonHydrator' => $baseDir . '/src/ULogin/Hydrators/JsonHydrator.php',
-    'ULogin\\ULogin\\Hydrators\\SerializeHydrator' => $baseDir . '/src/ULogin/Hydrators/SerializeHydrator.php',
-    'ULogin\\Validator' => $baseDir . '/src/ULogin/Validator.php',
-    'Test\\ULogin\\Factories\\ExceptionFactoryTest' => $baseDir . '/phpunit/src/ULogin/Factories/ExceptionFactoryTest.php',
-    'Test\\ULogin\\SearcherTest' => $baseDir . '/phpunit/src/ULogin/SearcherTest.php',
-    'Test\\ULogin\\ValidatorTest' => $baseDir . '/phpunit/src/ULogin/ValidatorTest.php',
 );

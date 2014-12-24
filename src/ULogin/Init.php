@@ -14,7 +14,8 @@ use \Phalcon\Mvc\View\Simple as View;
  * @author    Stanislav WEB | Lugansk <stanisov@gmail.com>
  * @copyright Stanislav WEB
  */
-class Init {
+class Init
+{
 
     /**
      * Got user data
@@ -49,7 +50,7 @@ class Init {
     /**
      * Required providers fields.
      *
-     * @var array
+     * @var array|string
      */
     private $requiredFields  =   [
         'first_name',
@@ -60,7 +61,7 @@ class Init {
     /**
      * Optional (additional) fields providers fields.
      *
-     * @var array
+     * @var array|string
      */
     private $optionalFields = [
         'email',
@@ -149,7 +150,7 @@ class Init {
 
             foreach($providers as $provider) {
 
-                if(mb_strpos($provider,"=") !== false) {
+                if(mb_strpos($provider, "=") !== false) {
 
                     $provider = explode('=', $provider);
                     $this->providers[$provider[0]]  =   ($provider[1] === 'true') ? true : false;
@@ -164,7 +165,7 @@ class Init {
     /**
      * Get social providers
      *
-     * @return string
+     * @return \stdClass
      */
     private function getProviders() {
 
@@ -250,8 +251,10 @@ class Init {
      */
     private function getFields() {
 
-        if(is_array($this->requiredFields) === true) {
-            $this->requiredFields	=	implode(',',$this->requiredFields);
+        $fields = $this->requiredFields;
+
+        if(is_array($fields) === true) {
+            $this->requiredFields	=	implode(',', $fields);
         }
 
         return $this->requiredFields;
@@ -297,8 +300,10 @@ class Init {
      */
     private function getOptional() {
 
-        if(is_array($this->optionalFields) === true) {
-            $this->optionalFields	=	implode(',',$this->optionalFields);
+        $fields = $this->optionalFields;
+
+        if(is_array($fields) === true) {
+            $this->optionalFields	=	implode(',', $fields);
         }
 
         return $this->optionalFields;
@@ -385,10 +390,10 @@ class Init {
 
         $request = new Request();
 
-        if($request->isPost() && $request->hasPost('token')) {
+        if($request->isPost() === true && $request->hasPost('token') === true) {
             $this->token = $request->getPost('token', null, false);
         }
-        else if($request->isGet() && $request->has('token')) {
+        else if($request->isGet() === true && $request->has('token') === true) {
             $this->token = $request->getQuery('token', null, false);
         }
 

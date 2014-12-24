@@ -32,7 +32,7 @@ tools:
             - vendor
             - phpunit
 
-    php_code_coverage: true
+    php_code_coverage: false
 
     php_analyzer:
         enabled: true

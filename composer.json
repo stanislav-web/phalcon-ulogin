@@ -27,11 +27,18 @@
          "php" : ">=5.3"
     },
 
-	"autoload": {
-		"psr-4": {
+    "autoload": {
+        "psr-4": {
             "ULogin\\": "src/ULogin"
-		}
-	},
+        },
+        "classmap": ["phpunit/src/ULogin"]
+    },
+
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\ULogin\\": "phpunit/src/ULogin"
+        }
+    },
 
     "extra": {
         "branch-alias": {

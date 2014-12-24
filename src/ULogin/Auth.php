@@ -12,15 +12,16 @@ use Phalcon\Di;
  * @author    Stanislav WEB | Lugansk <stanisov@gmail.com>
  * @copyright Stanislav WEB
  */
-class Auth extends Init {
+class Auth extends Init
+{
 
     /**
      * @const KEY ulogin uid
      */
-    const KEY   =   'ulogin';
+    const KEY   = 'ulogin';
 
     /**
-     * @var callable $session
+     * @var \Phalcon\DiInterface $session
      */
     protected $session;
 
@@ -71,7 +72,7 @@ class Auth extends Init {
      *          $this->getUser();
      *          </code>
      *
-     * @return array  data provided by the ISP authentication
+     * @return boolean|array  data provided by the ISP authentication
      */
     public function getUser() {
 
@@ -84,11 +85,10 @@ class Auth extends Init {
         return $this->user;
     }
 
-
     /**
      * User logout
      *
-     * @return null
+     * @return boolean
      */
     public function logout() {
         parent::logout();

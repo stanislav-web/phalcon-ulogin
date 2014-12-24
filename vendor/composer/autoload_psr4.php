@@ -6,10 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Test\\ULogin\\' => array($baseDir . '/phpunit/src/ULogin'),
-    'ULogin\\ULogin\\Hydrators\\' => array($baseDir . '/src/ULogin/Hydrators'),
-    'ULogin\\ULogin\\Factories\\' => array($baseDir . '/src/ULogin/Factories'),
-    'ULogin\\ULogin\\Exceptions\\' => array($baseDir . '/src/ULogin/Exceptions'),
-    'ULogin\\ULogin\\Aware\\' => array($baseDir . '/src/ULogin/Aware'),
     'ULogin\\' => array($baseDir . '/src/ULogin'),
+    'Test\\ULogin\\' => array($baseDir . '/phpunit/src/ULogin'),
 );
