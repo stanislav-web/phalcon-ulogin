@@ -2,7 +2,6 @@
 
 Phalcon ULogin. The authorization form uLogin through social networks
 
-```
 ## Compatible
 - PSR-0, PSR-1, PSR-2, PSR-4 Standards
 
@@ -38,15 +37,15 @@ You can create an injectable service
 ```
 ## Usage
 
-### simple use (get socials as default)
+#### simple use (get socials as default)
 ```php
     echo (new Auth())->getForm();
 ```
-### setup social widget
+#### setup social widget
 ```php
     echo (new Auth())->setType('window')->getForm(); // window, panel, small as default
 ```
-### setup providers for widget form
+#### setup providers for widget form
 ```php
 echo (new Auth())->setProviders([
                    'vkontakte'     =>  true,   // show inline 
@@ -56,15 +55,15 @@ echo (new Auth())->setProviders([
                    'yandex'        =>  false,  // show in drop down
     ])->setType('panel')->getForm();
 ```
-### or setup providers as string
+#### or setup providers as string
 ```php
     echo (new Auth())->setProviders('vkontakte=false,odnoklassniki=true,facebook=true,google=true,yandex=true')->setType('panel')->getForm();
 ```
-### setup redirect url (current path using as default)
+#### setup redirect url (current path using as default)
 ```php
     echo (new Auth())->setType('panel')->setUrl('?success')->getForm();
 ```
-### setup user fields getting from auth (optionals fields setup similary. Use setOptional())
+#### setup user fields getting from auth (optionals fields setup similary. Use setOptional())
 ```php
     echo (new Auth())->setFields([
                    'first_name',
@@ -73,11 +72,11 @@ echo (new Auth())->setProviders([
                    'city'
               ])->getForm();
 ```
-### or setup fields as string
+#### or setup fields as string
 ```php
     echo (new Auth())->setFields('first_name,last_name,photo,city')->getForm();
 ```
-### get auth data
+#### get auth data
 ```php
     $ulogin = new Auth();
 
