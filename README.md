@@ -39,6 +39,8 @@ You can create an injectable service
 
 #### simple use (get socials as default)
 ```php
+    use ULogin\Auth;
+    
     echo (new Auth())->getForm();
 ```
 #### setup social widget
