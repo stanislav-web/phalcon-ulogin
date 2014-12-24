@@ -59,12 +59,14 @@ class Auth extends Init {
 		}
 	}
 
-	/** Возвращает ассоциативный массив с данными о пользователе. Поля массива описаны в методе set_fields
-	 * \result данные о пользователе от провайдера авторизации
+    /**
+     * Returns an associative array with the data about the user.
+     * Fields array described in the method setFields
+     * @example <code>
+     *          $this->getUser();
+     *          </code>
 	 *
-	 * Пример: $userdata=$this->uauth->userdata();
-	 *
-	 * $userdata содержит данные, предоставленные провайдером авторизации.
+	 * @return array data provided by the ISP login
 	 */
 	public function getUser() {
 
@@ -76,12 +78,17 @@ class Auth extends Init {
 		return $this->user;
 	}
 
-
-	/** Завершает сессию и очищает сохраненные переменные
+    /**
+     * User logout
+     *
+     * @return null
 	 */
 	public function logout() {
 		parent::logout();
+
 		$this->session->remove(self::KEY);
+
+        return null;
 	}
 
 }
