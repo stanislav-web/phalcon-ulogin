@@ -1,6 +1,7 @@
 <?php
 namespace ULogin;
-use \Phalcon\DI;
+use Phalcon\Session\Exception;
+
 /**
  * ULogin init class
  *
