@@ -7,7 +7,6 @@ build:
                 'date.timezone': 'UTC'
         redis: false
         mysql: false
-        memcache: true
 
     dependencies:
 
