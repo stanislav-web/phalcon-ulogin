@@ -122,7 +122,7 @@ class Init
      *          </code>
      * @return Init
      */
-    public function setProviders($providers) {
+    public function setProviders($providers, $array = []) {
 
         if(is_array($providers) === true) {
 
@@ -135,11 +135,11 @@ class Init
         }
 
         // collection data
-        if(isset($array) && empty($array['required']) === false) {
+        if(empty($array['required']) === false) {
             $this->requiredProviders    = implode(',', $array['required']);
         }
 
-        if(isset($array) && empty($array['hidden']) === false) {
+        if(empty($array['hidden']) === false) {
             $this->hiddenProviders    = implode(',', $array['hidden']);
         }
 
