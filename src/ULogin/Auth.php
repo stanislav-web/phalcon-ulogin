@@ -112,6 +112,3 @@ class Auth extends Init
         return true;
     }
 }
-
-$auth = new Auth();
-$auth->getUser();

@@ -34,14 +34,14 @@ class Init
      *
      * @var string
      */
-    private $requiredProviders  =   'vkontakte,odnoklassniki,mailru,facebook';
+    private $requiredProviders  = 'vkontakte,odnoklassniki,mailru,facebook';
 
     /**
      * Hidden auth providers. Default hide on the drop down
      *
      * @var string
      */
-    private $hiddenProviders  =   'twitter,livejournal,google,yandex,openid';
+    private $hiddenProviders  = 'twitter,livejournal,google,yandex,openid';
 
     /**
      * Required providers fields.
@@ -164,11 +164,11 @@ class Init
 
         // collection data
         if(empty($array['required']) === false) {
-            $this->requiredProviders    =   implode(',', $array['required']);
+            $this->requiredProviders    = implode(',', $array['required']);
         }
 
         if(empty($array['hidden']) === false) {
-            $this->hiddenProviders    =   implode(',', $array['hidden']);
+            $this->hiddenProviders    = implode(',', $array['hidden']);
         }
 
         return $this;
