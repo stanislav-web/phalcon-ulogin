@@ -1,5 +1,8 @@
 <?php
 namespace Test\ULogin;
+
+use Phalcon\DI;
+use Phalcon\DI\FactoryDefault;
 use ULogin\Auth;
 
 /**
@@ -29,6 +32,13 @@ class AuthTest extends \PHPUnit_Framework_TestCase
     private $reflection;
 
     /**
+     * Dependency Injection container
+     *
+     * @var \Phalcon\DI
+     */
+    private $di;
+
+    /**
      * Initialize testing object
      *
      * @uses Auth
@@ -36,6 +46,20 @@ class AuthTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
+        $this->di = new FactoryDefault();
+        $this->di->reset();
+
+        // Setup DI
+        $this->di   =  new DI();
+
+        $this->di->setShared('session', function() {
+            $session = new \Phalcon\Session\Adapter\Files();
+            $session->start();
+            return $session;
+        });
+
+        DI::setDefault($this->di);
+
         $this->reflection = new \ReflectionClass('ULogin\Auth');
         $this->auth       = new Auth();
     }
@@ -79,5 +103,12 @@ class AuthTest extends \PHPUnit_Framework_TestCase
         $prop = $this->reflection->getProperty($name);
         $prop->setAccessible(true);
         return $prop;
+    }
+
+    /**
+     * @covers ULogin\Init::__construct()
+     */
+    public function testConstructor() {
+
     }
 }

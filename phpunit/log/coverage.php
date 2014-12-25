@@ -5,6 +5,8 @@ $coverage->setData(array (
   array (
     108 => 
     array (
+      0 => 'Test\\ULogin\\AuthTest::testConstructor',
+      1 => 'Test\\ULogin\\InitTest::testConstructor',
     ),
     110 => 
     array (
@@ -26,6 +28,8 @@ $coverage->setData(array (
     ),
     118 => 
     array (
+      0 => 'Test\\ULogin\\AuthTest::testConstructor',
+      1 => 'Test\\ULogin\\InitTest::testConstructor',
     ),
     143 => 
     array (
@@ -461,7 +465,8 @@ $coverage->setData(array (
   ),
 ));
 $coverage->setTests(array (
-  'UNCOVERED_FILES_FROM_WHITELIST' => NULL,
+  'Test\\ULogin\\AuthTest::testConstructor' => 0,
+  'Test\\ULogin\\InitTest::testConstructor' => 0,
 ));
 
 $filter = $coverage->filter();

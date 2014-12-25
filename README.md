@@ -1,5 +1,5 @@
 # Phalcon ULogin
-
+[![Build Status](https://travis-ci.org/stanislav-web/phalcon-ulogin.svg)](https://travis-ci.org/stanislav-web/phalcon-ulogin) [![Code Coverage](https://scrutinizer-ci.com/g/stanislav-web/phalcon-ulogin/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/stanislav-web/phalcon-ulogin/?branch=master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/stanislav-web/phalcon-ulogin/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/stanislav-web/phalcon-ulogin/?branch=master)
 Phalcon ULogin. The authorization form uLogin through social networks
 
 [![ULogin](https://ulogin.ru/img/feat1.png)](https://ulogin.ru)
@@ -13,10 +13,13 @@ Phalcon ULogin. The authorization form uLogin through social networks
 
 ## Install
 First update your dependencies through composer. Add to your composer.json:
-```php
+```python
 "require": {
     "stanislav-web/phalcon-ulogin": "dev-master",
 }
+```
+```python
+php composer.phar install
 ```
 OR
 ```python

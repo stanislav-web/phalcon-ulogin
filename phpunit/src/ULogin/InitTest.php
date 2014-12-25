@@ -80,4 +80,11 @@ class InitTest extends \PHPUnit_Framework_TestCase
         $prop->setAccessible(true);
         return $prop;
     }
+
+    /**
+     * @covers ULogin\Init::__construct()
+     */
+    public function testConstructor() {
+
+    }
 }
