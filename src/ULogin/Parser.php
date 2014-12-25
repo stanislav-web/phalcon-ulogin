@@ -49,9 +49,18 @@ class Parser
         foreach ($data as $provider => $bool) {
 
             if ($bool === true) {
+
                 $array['required'][] = $provider;
+
+            }
+            elseif (is_int($provider) === true)   {
+
+                $array['required'][] = $bool;
+
             } else {
+
                 $array['hidden'][] = $provider;
+
             }
         }
 

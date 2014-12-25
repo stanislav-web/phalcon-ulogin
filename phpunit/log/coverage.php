@@ -1,328 +1,7 @@
 <?php
 $coverage = new PHP_CodeCoverage;
 $coverage->setData(array (
-  '/Users/stanislavmenshykh/Projects/phalcon-ulogin/src/ULogin/Init.php' => 
-  array (
-    92 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testConstructor',
-    ),
-    94 => 
-    array (
-    ),
-    96 => 
-    array (
-    ),
-    97 => 
-    array (
-    ),
-    98 => 
-    array (
-    ),
-    99 => 
-    array (
-    ),
-    101 => 
-    array (
-    ),
-    102 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testConstructor',
-    ),
-    127 => 
-    array (
-    ),
-    129 => 
-    array (
-    ),
-    131 => 
-    array (
-    ),
-    133 => 
-    array (
-    ),
-    134 => 
-    array (
-    ),
-    135 => 
-    array (
-    ),
-    137 => 
-    array (
-    ),
-    139 => 
-    array (
-    ),
-    140 => 
-    array (
-    ),
-    141 => 
-    array (
-    ),
-    143 => 
-    array (
-    ),
-    145 => 
-    array (
-    ),
-    147 => 
-    array (
-    ),
-    149 => 
-    array (
-    ),
-    151 => 
-    array (
-    ),
-    152 => 
-    array (
-    ),
-    153 => 
-    array (
-    ),
-    155 => 
-    array (
-    ),
-    157 => 
-    array (
-    ),
-    160 => 
-    array (
-    ),
-    162 => 
-    array (
-    ),
-    163 => 
-    array (
-    ),
-    166 => 
-    array (
-    ),
-    167 => 
-    array (
-    ),
-    168 => 
-    array (
-    ),
-    170 => 
-    array (
-    ),
-    171 => 
-    array (
-    ),
-    172 => 
-    array (
-    ),
-    174 => 
-    array (
-    ),
-    175 => NULL,
-    194 => 
-    array (
-    ),
-    196 => 
-    array (
-    ),
-    197 => 
-    array (
-    ),
-    198 => 
-    array (
-    ),
-    200 => 
-    array (
-    ),
-    203 => 
-    array (
-    ),
-    205 => 
-    array (
-    ),
-    206 => NULL,
-    225 => 
-    array (
-    ),
-    227 => 
-    array (
-    ),
-    228 => 
-    array (
-    ),
-    229 => 
-    array (
-    ),
-    231 => 
-    array (
-    ),
-    234 => 
-    array (
-    ),
-    236 => 
-    array (
-    ),
-    238 => NULL,
-    251 => 
-    array (
-    ),
-    252 => 
-    array (
-    ),
-    254 => 
-    array (
-    ),
-    256 => 
-    array (
-    ),
-    258 => 
-    array (
-    ),
-    259 => NULL,
-    271 => 
-    array (
-    ),
-    273 => 
-    array (
-    ),
-    275 => 
-    array (
-    ),
-    276 => 
-    array (
-    ),
-    278 => 
-    array (
-    ),
-    281 => 
-    array (
-    ),
-    282 => NULL,
-    291 => 
-    array (
-    ),
-    292 => 
-    array (
-    ),
-    293 => 
-    array (
-    ),
-    294 => 
-    array (
-    ),
-    295 => NULL,
-    296 => 
-    array (
-    ),
-    297 => NULL,
-    306 => 
-    array (
-    ),
-    308 => 
-    array (
-    ),
-    309 => 
-    array (
-    ),
-    310 => 
-    array (
-    ),
-    311 => 
-    array (
-    ),
-    312 => 
-    array (
-    ),
-    313 => 
-    array (
-    ),
-    315 => 
-    array (
-    ),
-    316 => NULL,
-    331 => 
-    array (
-    ),
-    333 => 
-    array (
-    ),
-    337 => 
-    array (
-    ),
-    338 => 
-    array (
-    ),
-    339 => 
-    array (
-    ),
-    342 => 
-    array (
-    ),
-    343 => 
-    array (
-    ),
-    344 => 
-    array (
-    ),
-    345 => 
-    array (
-    ),
-    347 => 
-    array (
-    ),
-    348 => NULL,
-    357 => 
-    array (
-    ),
-    358 => 
-    array (
-    ),
-    360 => 
-    array (
-    ),
-    361 => NULL,
-    363 => 
-    array (
-    ),
-    364 => NULL,
-    373 => 
-    array (
-    ),
-    374 => 
-    array (
-    ),
-    376 => 
-    array (
-    ),
-    378 => NULL,
-    387 => 
-    array (
-    ),
-    389 => 
-    array (
-    ),
-    390 => 
-    array (
-    ),
-    391 => 
-    array (
-    ),
-    392 => 
-    array (
-    ),
-    393 => 
-    array (
-    ),
-    394 => 
-    array (
-    ),
-    395 => 
-    array (
-    ),
-    396 => 
-    array (
-    ),
-    398 => NULL,
-  ),
-  '/Users/stanislavmenshykh/Projects/phalcon-ulogin/src/ULogin/Auth.php' => 
+  '/var/www/phalcon-devtools/phalcon.local/vendor/stanislav-web/phalcon-ulogin/src/ULogin/Auth.php' => 
   array (
     41 => 
     array (
@@ -426,12 +105,411 @@ $coverage->setData(array (
       0 => 'Test\\ULogin\\AuthTest::testLogout',
     ),
     113 => NULL,
-    116 => 
+  ),
+  '/var/www/phalcon-devtools/phalcon.local/vendor/stanislav-web/phalcon-ulogin/src/ULogin/Init.php' => 
+  array (
+    97 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testConstructor',
+    ),
+    99 => 
     array (
     ),
-    117 => 
+    101 => 
     array (
     ),
+    102 => 
+    array (
+    ),
+    103 => 
+    array (
+    ),
+    104 => 
+    array (
+    ),
+    106 => 
+    array (
+    ),
+    107 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testConstructor',
+    ),
+    132 => 
+    array (
+    ),
+    135 => 
+    array (
+    ),
+    136 => 
+    array (
+    ),
+    137 => 
+    array (
+    ),
+    139 => 
+    array (
+    ),
+    140 => 
+    array (
+    ),
+    141 => 
+    array (
+    ),
+    143 => 
+    array (
+    ),
+    144 => NULL,
+    164 => 
+    array (
+    ),
+    166 => 
+    array (
+    ),
+    167 => 
+    array (
+    ),
+    168 => 
+    array (
+    ),
+    169 => 
+    array (
+    ),
+    172 => 
+    array (
+    ),
+    174 => 
+    array (
+    ),
+    175 => NULL,
+    195 => 
+    array (
+    ),
+    197 => 
+    array (
+    ),
+    198 => 
+    array (
+    ),
+    199 => 
+    array (
+    ),
+    200 => 
+    array (
+    ),
+    203 => 
+    array (
+    ),
+    205 => 
+    array (
+    ),
+    207 => NULL,
+    221 => 
+    array (
+    ),
+    222 => 
+    array (
+    ),
+    224 => 
+    array (
+    ),
+    226 => 
+    array (
+    ),
+    228 => 
+    array (
+    ),
+    229 => NULL,
+    242 => 
+    array (
+    ),
+    244 => 
+    array (
+    ),
+    246 => 
+    array (
+    ),
+    247 => 
+    array (
+    ),
+    248 => 
+    array (
+    ),
+    251 => 
+    array (
+    ),
+    252 => NULL,
+    262 => 
+    array (
+    ),
+    263 => 
+    array (
+    ),
+    264 => 
+    array (
+    ),
+    265 => 
+    array (
+    ),
+    266 => 
+    array (
+    ),
+    267 => NULL,
+    268 => 
+    array (
+    ),
+    269 => NULL,
+    279 => 
+    array (
+    ),
+    281 => 
+    array (
+    ),
+    282 => 
+    array (
+    ),
+    283 => 
+    array (
+    ),
+    284 => 
+    array (
+    ),
+    285 => 
+    array (
+    ),
+    287 => 
+    array (
+    ),
+    288 => NULL,
+    304 => 
+    array (
+    ),
+    306 => 
+    array (
+    ),
+    310 => 
+    array (
+    ),
+    311 => 
+    array (
+    ),
+    312 => 
+    array (
+    ),
+    315 => 
+    array (
+    ),
+    316 => 
+    array (
+    ),
+    317 => 
+    array (
+    ),
+    318 => 
+    array (
+    ),
+    320 => 
+    array (
+    ),
+    321 => NULL,
+    331 => 
+    array (
+    ),
+    332 => 
+    array (
+    ),
+    333 => 
+    array (
+    ),
+    335 => 
+    array (
+    ),
+    336 => NULL,
+    338 => 
+    array (
+    ),
+    339 => NULL,
+    349 => 
+    array (
+    ),
+    350 => 
+    array (
+    ),
+    352 => 
+    array (
+    ),
+    354 => NULL,
+    364 => 
+    array (
+    ),
+    366 => 
+    array (
+    ),
+    367 => 
+    array (
+    ),
+    368 => 
+    array (
+    ),
+    369 => 
+    array (
+    ),
+    370 => 
+    array (
+    ),
+    371 => 
+    array (
+    ),
+    372 => 
+    array (
+    ),
+    373 => 
+    array (
+    ),
+    375 => NULL,
+  ),
+  '/var/www/phalcon-devtools/phalcon.local/vendor/stanislav-web/phalcon-ulogin/src/ULogin/Parser.php' => 
+  array (
+    25 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testMethods',
+      1 => 'Test\\ULogin\\ParserTest::testMapArray',
+    ),
+    27 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testMethods',
+      1 => 'Test\\ULogin\\ParserTest::testMapArray',
+    ),
+    28 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testMethods',
+      1 => 'Test\\ULogin\\ParserTest::testMapArray',
+    ),
+    30 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testMethods',
+      1 => 'Test\\ULogin\\ParserTest::testMapArray',
+    ),
+    34 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testMethods',
+      1 => 'Test\\ULogin\\ParserTest::testMapArray',
+    ),
+    35 => NULL,
+    47 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testMethods',
+      1 => 'Test\\ULogin\\ParserTest::testArrayResolve',
+    ),
+    49 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testMethods',
+      1 => 'Test\\ULogin\\ParserTest::testArrayResolve',
+    ),
+    51 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testMethods',
+      1 => 'Test\\ULogin\\ParserTest::testArrayResolve',
+    ),
+    53 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testMethods',
+      1 => 'Test\\ULogin\\ParserTest::testArrayResolve',
+    ),
+    55 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testMethods',
+      1 => 'Test\\ULogin\\ParserTest::testArrayResolve',
+    ),
+    56 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testMethods',
+      1 => 'Test\\ULogin\\ParserTest::testArrayResolve',
+    ),
+    58 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testMethods',
+      1 => 'Test\\ULogin\\ParserTest::testArrayResolve',
+    ),
+    60 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testMethods',
+      1 => 'Test\\ULogin\\ParserTest::testArrayResolve',
+    ),
+    62 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testArrayResolve',
+    ),
+    65 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testMethods',
+      1 => 'Test\\ULogin\\ParserTest::testArrayResolve',
+    ),
+    67 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testMethods',
+      1 => 'Test\\ULogin\\ParserTest::testArrayResolve',
+    ),
+    68 => NULL,
+    80 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testMethods',
+      1 => 'Test\\ULogin\\ParserTest::testStringResolve',
+    ),
+    82 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testMethods',
+      1 => 'Test\\ULogin\\ParserTest::testStringResolve',
+    ),
+    84 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testMethods',
+      1 => 'Test\\ULogin\\ParserTest::testStringResolve',
+    ),
+    86 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testMethods',
+      1 => 'Test\\ULogin\\ParserTest::testStringResolve',
+    ),
+    88 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testStringResolve',
+    ),
+    90 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testStringResolve',
+    ),
+    91 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testStringResolve',
+    ),
+    92 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testStringResolve',
+    ),
+    93 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testStringResolve',
+    ),
+    95 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testStringResolve',
+    ),
+    97 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testMethods',
+      1 => 'Test\\ULogin\\ParserTest::testStringResolve',
+    ),
+    99 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testMethods',
+      1 => 'Test\\ULogin\\ParserTest::testStringResolve',
+    ),
+    101 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testMethods',
+      1 => 'Test\\ULogin\\ParserTest::testStringResolve',
+    ),
+    102 => NULL,
   ),
 ));
 $coverage->setTests(array (
@@ -440,15 +518,20 @@ $coverage->setTests(array (
   'Test\\ULogin\\AuthTest::testLogout' => 0,
   'Test\\ULogin\\AuthTest::testGetUser' => 0,
   'Test\\ULogin\\InitTest::testConstructor' => 0,
+  'Test\\ULogin\\ParserTest::testMethods' => 0,
+  'Test\\ULogin\\ParserTest::testMapArray' => 0,
+  'Test\\ULogin\\ParserTest::testArrayResolve' => 0,
+  'Test\\ULogin\\ParserTest::testStringResolve' => 0,
 ));
 
 $filter = $coverage->filter();
 $filter->setBlacklistedFiles(array (
-  '/private/var/folders/mj/djg9_yfd1r50n2b9_cn1mpbh0000gn/T/ide-phpunit.php' => true,
+  '/tmp/ide-phpunit.php' => true,
 ));
 $filter->setWhitelistedFiles(array (
-  '/Users/stanislavmenshykh/Projects/phalcon-ulogin/src/ULogin/Auth.php' => true,
-  '/Users/stanislavmenshykh/Projects/phalcon-ulogin/src/ULogin/Init.php' => true,
+  '/var/www/phalcon-devtools/phalcon.local/vendor/stanislav-web/phalcon-ulogin/src/ULogin/Auth.php' => true,
+  '/var/www/phalcon-devtools/phalcon.local/vendor/stanislav-web/phalcon-ulogin/src/ULogin/Init.php' => true,
+  '/var/www/phalcon-devtools/phalcon.local/vendor/stanislav-web/phalcon-ulogin/src/ULogin/Parser.php' => true,
 ));
 
 return $coverage;
