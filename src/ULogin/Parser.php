@@ -14,6 +14,27 @@ class Parser
 {
 
     /**
+     * Resolve mapper
+     *
+     * @param mixed $data input data
+     * @access static
+     * @return array
+     */
+    public static function map($data) {
+
+        if(is_array($data) === true) {
+
+            $array = self::arrayResolve($data);
+        } else {
+
+            $array = self::stringResolve($data);
+
+        }
+
+        return $array;
+    }
+
+    /**
      * Resolve array data as providers
      *
      * @param array $data

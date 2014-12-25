@@ -127,17 +127,9 @@ class Init
      *          </code>
      * @return Init
      */
-    public function setProviders($providers, $array = [])
+    public function setProviders($providers)
     {
-
-        if (is_array($providers) === true) {
-
-            $array = Parser::arrayResolve($providers);
-        } else {
-
-            $array = Parser::stringResolve($providers);
-
-        }
+        $array = Parser::map($providers);
 
         // collection data
         if (empty($array['required']) === false) {
