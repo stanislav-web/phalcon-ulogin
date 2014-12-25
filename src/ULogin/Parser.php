@@ -10,7 +10,8 @@ namespace ULogin;
  * @author    Stanislav WEB | Lugansk <stanisov@gmail.com>
  * @copyright Stanislav WEB
  */
-class Parser {
+class Parser
+{
 
     /**
      * Resolve array data as providers
