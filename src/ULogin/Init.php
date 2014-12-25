@@ -251,13 +251,14 @@ class Init
      */
     private function getFields() {
 
-        $fields = $this->requiredFields;
-
-        if(is_array($fields) === true) {
-            $this->requiredFields	=	implode(',', $fields);
+        if(is_array($this->requiredFields) === true) {
+            $result	=	implode(',', $this->requiredFields);
+        }
+        else {
+            $result = strval($this->requiredFields);
         }
 
-        return $this->requiredFields;
+        return $result;
     }
 
     /**
@@ -300,13 +301,14 @@ class Init
      */
     private function getOptional() {
 
-        $fields = $this->optionalFields;
-
-        if(is_array($fields) === true) {
-            $this->optionalFields	=	implode(',', $fields);
+        if(is_array($this->optionalFields) === true) {
+            $result	=	implode(',', $this->optionalFields);
+        }
+        else {
+            $result = strval($this->optionalFields);
         }
 
-        return $this->optionalFields;
+        return $result;
     }
 
     /**
