@@ -124,13 +124,15 @@ class Init
      */
     public function setProviders($providers) {
 
+        $array = [];
+
         if(is_array($providers) === true) {
 
             $array = Parser::arrayResolve($providers);
         }
         else if(empty($providers) === false) {
 
-            $array = Parser::arrayResolve($providers);
+            $array = Parser::stringResolve($providers);
 
         }
 
