@@ -44,7 +44,7 @@ class Parser
      * @access static
      * @return array
      */
-    public static function stringResolve($data)
+    public static function stringResolve($data = '')
     {
 
         $array = [];

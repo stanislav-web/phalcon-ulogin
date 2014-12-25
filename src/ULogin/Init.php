@@ -19,12 +19,14 @@ class Init
 
     /**
      * Got user data
+     *
      * @var boolean|array
      */
     protected $user = false;
 
     /**
      * Token key
+     *
      * @var boolean
      */
     protected $token = false;
@@ -34,21 +36,21 @@ class Init
      *
      * @var string
      */
-    private $requiredProviders  = 'vkontakte,odnoklassniki,mailru,facebook';
+    private $requiredProviders = 'vkontakte,odnoklassniki,mailru,facebook';
 
     /**
      * Hidden auth providers. Default hide on the drop down
      *
      * @var string
      */
-    private $hiddenProviders  = 'twitter,livejournal,google,yandex,openid';
+    private $hiddenProviders = 'twitter,livejournal,google,yandex,openid';
 
     /**
      * Required providers fields.
      *
      * @var string
      */
-    private $requiredFields  = 'first_name,last_name,photo';
+    private $requiredFields = 'first_name,last_name,photo';
 
     /**
      * Optional (additional) fields providers fields.
@@ -59,9 +61,10 @@ class Init
 
     /**
      * Widget types
+     *
      * @var array
      */
-    protected $types  = [
+    protected $types = [
         'small',
         'panel',
         'window'
@@ -69,12 +72,14 @@ class Init
 
     /**
      * Widget. 'small' as default
+     *
      * @var string
      */
-    private $widget  = 'small';
+    private $widget = 'small';
 
     /**
      * Redirect url
+     *
      * @var boolean|string
      */
     private $url = false;
@@ -89,12 +94,12 @@ class Init
      */
     public function __construct(array $params = [])
     {
-        if(empty($params) === false) {
+        if (empty($params) === false) {
 
-            foreach($params as $key => $values) {
+            foreach ($params as $key => $values) {
 
-                if(method_exists($this, 'set'.ucfirst($key)) === true) {
-                    $this->{'set'.ucfirst($key)}($params[$key]);
+                if (method_exists($this, 'set' . ucfirst($key)) === true) {
+                    $this->{'set' . ucfirst($key)}($params[$key]);
                 }
             }
 
@@ -106,41 +111,41 @@ class Init
      *
      * @param mixed $providers as ('provider' => true, 'provider' => false) or string separated by comma
      * @example <code>
-     *          $this->setProviders([
-     *              'vkontakte'     =>  true,
-     *              'odnoklassniki' =>  true,
-     *              'mailru'        =>  true,
-     *              'facebook'      =>  true,
-     *              'twitter'       =>  false,  // in drop down
-     *              'google'        =>  false,  // in drop down
-     *              'yandex'        =>  false,  // in drop down
-     *              'livejournal'   =>  false,  // in drop down
-     *              'openid'        =>  false   // in drop down
-     *          ]);
+     *                         $this->setProviders([
+     *                         'vkontakte'     =>  true,
+     *                         'odnoklassniki' =>  true,
+     *                         'mailru'        =>  true,
+     *                         'facebook'      =>  true,
+     *                         'twitter'       =>  false,  // in drop down
+     *                         'google'        =>  false,  // in drop down
+     *                         'yandex'        =>  false,  // in drop down
+     *                         'livejournal'   =>  false,  // in drop down
+     *                         'openid'        =>  false   // in drop down
+     *                         ]);
      *
      *          $this->setProviders('vkontakte=true,odnoklassniki=true,mailru=true,openid=false');
      *          </code>
      * @return Init
      */
-    public function setProviders($providers, $array = []) {
+    public function setProviders($providers, $array = [])
+    {
 
-        if(is_array($providers) === true) {
+        if (is_array($providers) === true) {
 
             $array = Parser::arrayResolve($providers);
-        }
-        else if(empty($providers) === false) {
+        } else {
 
             $array = Parser::stringResolve($providers);
 
         }
 
         // collection data
-        if(empty($array['required']) === false) {
-            $this->requiredProviders    = implode(',', $array['required']);
+        if (empty($array['required']) === false) {
+            $this->requiredProviders = implode(',', $array['required']);
         }
 
-        if(empty($array['hidden']) === false) {
-            $this->hiddenProviders    = implode(',', $array['hidden']);
+        if (empty($array['hidden']) === false) {
+            $this->hiddenProviders = implode(',', $array['hidden']);
         }
 
         return $this;
@@ -151,24 +156,24 @@ class Init
      *
      * @param mixed $fields as ('field1', 'field2', ...) or string separated by comma
      * @example <code>
-     *          $this->setFields([
-     *              'first_name',
-     *              'last_name',
-     *              'photo'
-     *          ]);
+     *                      $this->setFields([
+     *                      'first_name',
+     *                      'last_name',
+     *                      'photo'
+     *                      ]);
      *
      *          $this->setFields('first_name,last_name,photo');
      *          </code>
      * @return Init
      */
-    public function setFields($fields) {
+    public function setFields($fields)
+    {
 
-        if(empty($fields) === false) {
+        if (empty($fields) === false) {
 
-            if(is_array($fields) === true) {
-                $this->requiredFields    = implode(',', $fields);
-            }
-            else {
+            if (is_array($fields) === true) {
+                $this->requiredFields = implode(',', $fields);
+            } else {
                 $this->requiredFields = $fields;
 
             }
@@ -182,24 +187,24 @@ class Init
      *
      * @param mixed $fields as ('field1', 'field2', ...) or string separated by comma
      * @example <code>
-     *          $this->setOptional([
-     *              'bday',
-     *              'city',
-     *              'sex'
-     *          ]);
+     *                      $this->setOptional([
+     *                      'bday',
+     *                      'city',
+     *                      'sex'
+     *                      ]);
      *
      *          $this->setOptional('bday,city,sex');
      *          </code>
      * @return Init
      */
-    public function setOptional($fields) {
+    public function setOptional($fields)
+    {
 
-        if(empty($fields) === false) {
+        if (empty($fields) === false) {
 
-            if(is_array($fields) === true) {
-                $this->optionalFields    = implode(',', $fields);
-            }
-            else {
+            if (is_array($fields) === true) {
+                $this->optionalFields = implode(',', $fields);
+            } else {
                 $this->optionalFields = $fields;
 
             }
@@ -218,10 +223,11 @@ class Init
      *          </code>
      * @return Init
      */
-    public function setType($type) {
+    public function setType($type)
+    {
 
         $this->types = array_flip($this->types);
-        if(isset($this->types[$type]) === true) {
+        if (isset($this->types[$type]) === true) {
 
             $this->widget = $type;
 
@@ -238,16 +244,16 @@ class Init
      * @param string $url page that will be implemented to redirect after login (accept QUERY_STRING)
      * @return $this
      */
-    public function setUrl($url = '') {
+    public function setUrl($url = '')
+    {
 
         $request = new Request();
 
-        if(empty($url) === true) {
+        if (empty($url) === true) {
 
-            $this->url = $request->getScheme() . '://'. $request->getHttpHost() . (new Router())->getRewriteUri();
-        }
-        else {
-            $this->url = $request->getScheme() . '://'. $request->getHttpHost().$url;
+            $this->url = $request->getScheme() . '://' . $request->getHttpHost() . (new Router())->getRewriteUri();
+        } else {
+            $this->url = $request->getScheme() . '://' . $request->getHttpHost() . $url;
         }
 
         return $this;
@@ -258,10 +264,12 @@ class Init
      *
      * @return bool
      */
-    private function destroyUserData() {
+    private function destroyUserData()
+    {
 
-        if(is_array($this->user) === true
-            && isset($this->user["error"]) === true) {
+        if (is_array($this->user) === true
+            && isset($this->user["error"]) === true
+        ) {
             $this->user = false;
             return true;
         }
@@ -273,14 +281,14 @@ class Init
      *
      * @return bool|mixed
      */
-    public function getToken() {
+    public function getToken()
+    {
 
         $request = new Request();
 
-        if($request->isPost() === true) {
+        if ($request->isPost() === true) {
             $this->token = $request->getPost('token', null, false);
-        }
-        else if($request->isGet() === true) {
+        } else if ($request->isGet() === true) {
             $this->token = $request->getQuery('token', null, false);
         }
 
@@ -297,12 +305,13 @@ class Init
      *
      * @return array|bool|mixed data provided by the ISP login
      */
-    public function getUser() {
+    public function getUser()
+    {
 
         // destroy previous content
         $this->destroyUserData();
 
-        if($this->user === false) {
+        if ($this->user === false) {
 
             // get user
 
@@ -311,7 +320,7 @@ class Init
             $this->user = json_decode($content, true);
 
             // if use has error , destroy user data
-            if($this->destroyUserData() === true) {
+            if ($this->destroyUserData() === true) {
                 $this->logout();
             }
         }
@@ -324,10 +333,12 @@ class Init
      *
      * @return array|bool|mixed
      */
-    public function isAuthorised() {
+    public function isAuthorised()
+    {
 
-        if(is_array($this->user) === true
-            && isset($this->user['error']) === false) {
+        if (is_array($this->user) === true
+            && isset($this->user['error']) === false
+        ) {
 
             return true;
         }
@@ -340,10 +351,11 @@ class Init
      *
      * @return null
      */
-    protected function logout() {
+    protected function logout()
+    {
 
-        $this->token    = false;
-        $this->user     = false;
+        $this->token = false;
+        $this->user = false;
 
         return null;
 
@@ -354,17 +366,18 @@ class Init
      *
      * @return View
      */
-    public function getForm() {
+    public function getForm()
+    {
 
         $view = new View();
 
-        return $view->render(__DIR__.'/../views/ulogin', [
-            'widget'    => $this->widget,
-            'fields'    => $this->requiredFields,
-            'optional'  => $this->optionalFields,
+        return $view->render(__DIR__ . '/../views/ulogin', [
+            'widget' => $this->widget,
+            'fields' => $this->requiredFields,
+            'optional' => $this->optionalFields,
             'providers' => $this->requiredProviders,
-            'hidden' 	=> $this->hiddenProviders,
-            'url'       => $this->url
+            'hidden' => $this->hiddenProviders,
+            'url' => $this->url
         ]);
 
     }
