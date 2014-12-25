@@ -106,9 +106,63 @@ class AuthTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers ULogin\Init::__construct()
+     * @covers ULogin\Auth::__construct()
      */
     public function testConstructor() {
+
+    }
+
+    /**
+     * @covers ULogin\Auth::hasSession()
+     */
+    public function testSession() {
+
+        // check return
+        $session = $this->invokeMethod($this->auth, 'hasSession', array());
+
+        $this->assertTrue($session,
+            "[-] Session does not configured in DI"
+        );
+
+        //@todo check user data
+        $sessionContainer = $this->di->get('session');
+        $sessionContainer->set(Auth::KEY, array(1,2,3));
+
+        // check while service destroyed
+        $this->di->offsetUnset('session');
+
+        $session = $this->invokeMethod($this->auth, 'hasSession', array());
+
+        $this->assertFalse($session,
+            "[-] Session must be destroyed"
+        );
+    }
+
+    /**
+     * @covers ULogin\Auth::logout()
+     */
+    public function testLogout() {
+
+        // check return
+        $logout = $this->invokeMethod($this->auth, 'logout', array());
+
+        $this->assertTrue($logout,
+            "[-] logout must return true"
+        );
+    }
+
+    /**
+     * @covers ULogin\Auth::getUser()
+     */
+    public function testGetUser() {
+
+        // check return
+        $getUser = $this->invokeMethod($this->auth, 'getUser', array());
+
+        $this->assertInternalType('boolean', $getUser,
+            "[-] getUser must return boolean or array"
+        );
+        $this->assertInternalType('array', array()); // ))
 
     }
 }

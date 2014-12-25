@@ -109,6 +109,6 @@ class Auth extends Init
         parent::logout();
         $this->session->remove(self::KEY);
 
-        return false;
+        return true;
     }
 }
