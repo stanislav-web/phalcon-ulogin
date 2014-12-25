@@ -124,42 +124,14 @@ class Init
      */
     public function setProviders($providers) {
 
-        $array = [];
-
         if(is_array($providers) === true) {
 
-            foreach($providers as $provider => $bool) {
-
-                if($bool === true) {
-                    $array['required'][] = $provider;
-                }
-                else {
-                    $array['hidden'][] = $provider;
-                }
-            }
+            $array = Parser::arrayResolve($providers);
         }
         else if(empty($providers) === false) {
 
-            $providers = explode(',', trim($providers));
+            $array = Parser::arrayResolve($providers);
 
-            foreach($providers as $provider) {
-
-                if(mb_strpos($provider, "=") !== false) {
-
-                    $bool = explode('=', $provider);
-
-                    if($bool[1] === 'true') {
-                        $array['required'][] = $bool[0];
-                    }
-                    else {
-                        $array['hidden'][] = $bool[0];
-                    }
-                }
-                else {
-                    // collect to required
-                    $array['required'][] = $provider;
-                }
-            }
         }
 
         // collection data
@@ -396,4 +368,5 @@ class Init
         ]);
 
     }
+
 }
