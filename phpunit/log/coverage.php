@@ -3,36 +3,63 @@ $coverage = new PHP_CodeCoverage;
 $coverage->setData(array (
   '/Users/stanislavmenshykh/Projects/phalcon-ulogin/src/ULogin/Init.php' => 
   array (
-    108 => 
+    92 => 
     array (
       0 => 'Test\\ULogin\\InitTest::testConstructor',
     ),
-    110 => 
+    94 => 
     array (
     ),
-    112 => 
+    96 => 
     array (
     ),
-    113 => 
+    97 => 
     array (
     ),
-    114 => 
+    98 => 
     array (
     ),
-    115 => 
+    99 => 
     array (
     ),
-    117 => 
+    101 => 
     array (
     ),
-    118 => 
+    102 => 
     array (
       0 => 'Test\\ULogin\\InitTest::testConstructor',
+    ),
+    127 => 
+    array (
+    ),
+    129 => 
+    array (
+    ),
+    131 => 
+    array (
+    ),
+    133 => 
+    array (
+    ),
+    134 => 
+    array (
+    ),
+    135 => 
+    array (
+    ),
+    137 => 
+    array (
+    ),
+    139 => 
+    array (
+    ),
+    140 => 
+    array (
+    ),
+    141 => 
+    array (
     ),
     143 => 
-    array (
-    ),
-    144 => 
     array (
     ),
     145 => 
@@ -47,93 +74,84 @@ $coverage->setData(array (
     151 => 
     array (
     ),
+    152 => 
+    array (
+    ),
     153 => 
     array (
     ),
     155 => 
     array (
     ),
-    156 => 
-    array (
-    ),
     157 => 
     array (
     ),
-    158 => 
+    160 => 
     array (
     ),
     162 => 
     array (
     ),
-    163 => NULL,
+    163 => 
+    array (
+    ),
+    166 => 
+    array (
+    ),
+    167 => 
+    array (
+    ),
+    168 => 
+    array (
+    ),
+    170 => 
+    array (
+    ),
+    171 => 
+    array (
+    ),
     172 => 
     array (
     ),
     174 => 
     array (
     ),
-    176 => 
-    array (
-    ),
-    177 => 
-    array (
-    ),
-    179 => 
-    array (
-    ),
-    181 => 
-    array (
-    ),
-    182 => 
-    array (
-    ),
-    183 => 
-    array (
-    ),
-    185 => 
-    array (
-    ),
-    187 => 
-    array (
-    ),
-    189 => 
-    array (
-    ),
-    191 => 
-    array (
-    ),
-    193 => 
+    175 => NULL,
+    194 => 
     array (
     ),
     196 => 
     array (
     ),
-    199 => 
+    197 => 
     array (
     ),
-    201 => 
+    198 => 
+    array (
+    ),
+    200 => 
     array (
     ),
     203 => 
     array (
     ),
-    206 => 
+    205 => 
     array (
     ),
-    208 => 
+    206 => NULL,
+    225 => 
     array (
     ),
-    210 => 
+    227 => 
     array (
     ),
-    211 => NULL,
-    230 => 
+    228 => 
+    array (
+    ),
+    229 => 
     array (
     ),
     231 => 
-    array (
-    ),
-    232 => 
     array (
     ),
     234 => 
@@ -142,97 +160,116 @@ $coverage->setData(array (
     236 => 
     array (
     ),
-    237 => 
+    238 => NULL,
+    251 => 
     array (
     ),
-    238 => 
-    array (
-    ),
-    242 => 
-    array (
-    ),
-    244 => NULL,
-    253 => 
+    252 => 
     array (
     ),
     254 => 
     array (
     ),
-    255 => 
+    256 => 
     array (
     ),
-    257 => 
+    258 => 
     array (
     ),
-    260 => 
+    259 => NULL,
+    271 => 
     array (
     ),
-    261 => NULL,
-    280 => 
+    273 => 
+    array (
+    ),
+    275 => 
+    array (
+    ),
+    276 => 
+    array (
+    ),
+    278 => 
     array (
     ),
     281 => 
     array (
     ),
-    282 => 
-    array (
-    ),
-    284 => 
-    array (
-    ),
-    286 => 
-    array (
-    ),
-    287 => 
-    array (
-    ),
-    288 => 
+    282 => NULL,
+    291 => 
     array (
     ),
     292 => 
     array (
     ),
-    294 => NULL,
-    303 => 
+    293 => 
     array (
     ),
-    304 => 
+    294 => 
     array (
     ),
-    305 => 
+    295 => NULL,
+    296 => 
     array (
     ),
-    307 => 
+    297 => NULL,
+    306 => 
+    array (
+    ),
+    308 => 
+    array (
+    ),
+    309 => 
     array (
     ),
     310 => 
     array (
     ),
-    311 => NULL,
-    324 => 
+    311 => 
     array (
     ),
-    325 => 
+    312 => 
     array (
     ),
-    327 => 
+    313 => 
     array (
     ),
-    329 => 
+    315 => 
     array (
     ),
+    316 => NULL,
     331 => 
     array (
     ),
-    332 => NULL,
+    333 => 
+    array (
+    ),
+    337 => 
+    array (
+    ),
+    338 => 
+    array (
+    ),
+    339 => 
+    array (
+    ),
+    342 => 
+    array (
+    ),
+    343 => 
+    array (
+    ),
     344 => 
     array (
     ),
-    346 => 
+    345 => 
     array (
     ),
-    347 => NULL,
-    356 => 
+    347 => 
+    array (
+    ),
+    348 => NULL,
+    357 => 
     array (
     ),
     358 => 
@@ -241,34 +278,31 @@ $coverage->setData(array (
     360 => 
     array (
     ),
-    361 => 
-    array (
-    ),
+    361 => NULL,
     363 => 
     array (
     ),
-    365 => 
+    364 => NULL,
+    373 => 
     array (
     ),
-    366 => NULL,
-    375 => 
+    374 => 
     array (
     ),
     376 => 
     array (
     ),
-    377 => 
+    378 => NULL,
+    387 => 
     array (
     ),
-    378 => 
+    389 => 
     array (
     ),
-    379 => NULL,
-    380 => 
-    array (
-    ),
-    381 => NULL,
     390 => 
+    array (
+    ),
+    391 => 
     array (
     ),
     392 => 
@@ -286,99 +320,7 @@ $coverage->setData(array (
     396 => 
     array (
     ),
-    397 => 
-    array (
-    ),
-    399 => 
-    array (
-    ),
-    400 => NULL,
-    415 => 
-    array (
-    ),
-    417 => 
-    array (
-    ),
-    421 => 
-    array (
-    ),
-    422 => 
-    array (
-    ),
-    423 => 
-    array (
-    ),
-    426 => 
-    array (
-    ),
-    427 => 
-    array (
-    ),
-    428 => 
-    array (
-    ),
-    429 => 
-    array (
-    ),
-    431 => 
-    array (
-    ),
-    432 => NULL,
-    441 => 
-    array (
-    ),
-    442 => 
-    array (
-    ),
-    444 => 
-    array (
-    ),
-    445 => NULL,
-    447 => 
-    array (
-    ),
-    448 => NULL,
-    457 => 
-    array (
-    ),
-    458 => 
-    array (
-    ),
-    460 => 
-    array (
-    ),
-    462 => NULL,
-    471 => 
-    array (
-    ),
-    473 => 
-    array (
-    ),
-    475 => 
-    array (
-    ),
-    476 => 
-    array (
-    ),
-    477 => 
-    array (
-    ),
-    478 => 
-    array (
-    ),
-    479 => 
-    array (
-    ),
-    480 => 
-    array (
-    ),
-    481 => 
-    array (
-    ),
-    482 => 
-    array (
-    ),
-    484 => NULL,
+    398 => NULL,
   ),
   '/Users/stanislavmenshykh/Projects/phalcon-ulogin/src/ULogin/Auth.php' => 
   array (
@@ -402,41 +344,41 @@ $coverage->setData(array (
     array (
       0 => 'Test\\ULogin\\AuthTest::testConstructor',
     ),
-    50 => 
+    51 => 
+    array (
+    ),
+    52 => 
+    array (
+    ),
+    54 => 
     array (
       0 => 'Test\\ULogin\\AuthTest::testConstructor',
     ),
-    59 => 
+    57 => 
     array (
-      0 => 'Test\\ULogin\\AuthTest::testSession',
+      0 => 'Test\\ULogin\\AuthTest::testConstructor',
     ),
-    62 => 
+    58 => 
     array (
-      0 => 'Test\\ULogin\\AuthTest::testSession',
+      0 => 'Test\\ULogin\\AuthTest::testConstructor',
     ),
-    64 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testSession',
-    ),
-    65 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testSession',
-    ),
-    66 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testSession',
-    ),
-    68 => 
+    67 => 
     array (
       0 => 'Test\\ULogin\\AuthTest::testSession',
     ),
     70 => 
     array (
+      0 => 'Test\\ULogin\\AuthTest::testSession',
     ),
-    71 => 
+    72 => 
     array (
+      0 => 'Test\\ULogin\\AuthTest::testSession',
     ),
     73 => 
+    array (
+      0 => 'Test\\ULogin\\AuthTest::testSession',
+    ),
+    74 => 
     array (
       0 => 'Test\\ULogin\\AuthTest::testSession',
     ),
@@ -484,6 +426,12 @@ $coverage->setData(array (
       0 => 'Test\\ULogin\\AuthTest::testLogout',
     ),
     113 => NULL,
+    116 => 
+    array (
+    ),
+    117 => 
+    array (
+    ),
   ),
 ));
 $coverage->setTests(array (

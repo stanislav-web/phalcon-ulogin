@@ -30,48 +30,32 @@ class Init
     protected $token = false;
 
     /**
-     * Available auth providers. Default has false attribute
-     * to disable view on drop down list
+     * Available auth providers. Default show on the panel
      *
-     * @var array
+     * @var string
      */
-    private $providers  = [
-        'vkontakte'     => true,
-        'odnoklassniki' => true,
-        'mailru'        => false,
-        'facebook'      => true,
-        'twitter'       => false,
-        'google'        => true,
-        'yandex'        => true,
-        'livejournal'   => false,
-        'openid'        => false
-    ];
+    private $requiredProviders  =   'vkontakte,odnoklassniki,mailru,facebook';
+
+    /**
+     * Hidden auth providers. Default hide on the drop down
+     *
+     * @var string
+     */
+    private $hiddenProviders  =   'twitter,livejournal,google,yandex,openid';
 
     /**
      * Required providers fields.
      *
-     * @var array|string
+     * @var string
      */
-    private $requiredFields  = [
-        'first_name',
-        'last_name',
-        'photo'
-    ];
+    private $requiredFields  = 'first_name,last_name,photo';
 
     /**
      * Optional (additional) fields providers fields.
      *
-     * @var array|string
+     * @var string
      */
-    private $optionalFields = [
-        'email',
-        'nickname',
-        'bdate',
-        'sex',
-        'photo_big',
-        'city',
-        'country'
-    ];
+    private $optionalFields = 'email, nickname,bdate,sex,photo_big,city,country';
 
     /**
      * Widget types
@@ -140,73 +124,54 @@ class Init
      */
     public function setProviders($providers) {
 
+        $array = [];
+
         if(is_array($providers) === true) {
-            $this->providers    = $providers;
+
+            foreach($providers as $provider => $bool) {
+
+                if($bool === true) {
+                    $array['required'][] = $provider;
+                }
+                else {
+                    $array['hidden'][] = $provider;
+                }
+            }
         }
-        else {
-            $this->providers = '';
+        else if(empty($providers) === false) {
+
             $providers = explode(',', trim($providers));
 
             foreach($providers as $provider) {
 
                 if(mb_strpos($provider, "=") !== false) {
 
-                    $provider = explode('=', $provider);
-                    $this->providers[$provider[0]]  = ($provider[1] === 'true') ? true : false;
+                    $bool = explode('=', $provider);
+
+                    if($bool[1] === 'true') {
+                        $array['required'][] = $bool[0];
+                    }
+                    else {
+                        $array['hidden'][] = $bool[0];
+                    }
+                }
+                else {
+                    // collect to required
+                    $array['required'][] = $provider;
                 }
             }
+        }
 
+        // collection data
+        if(empty($array['required']) === false) {
+            $this->requiredProviders    =   implode(',', $array['required']);
+        }
+
+        if(empty($array['hidden']) === false) {
+            $this->hiddenProviders    =   implode(',', $array['hidden']);
         }
 
         return $this;
-    }
-
-    /**
-     * Get social providers
-     *
-     * @return \stdClass
-     */
-    private function getProviders() {
-
-        $result = new \StdClass();
-
-        if(is_array($this->providers) === true) {
-
-            $providers = $this->providers;
-            unset($this->providers);
-
-            foreach($providers as $provider => $mode) {
-
-                if(true === $mode) {
-                    $this->providers['required'][] = $provider;
-                }
-                else {
-                    $this->providers['hidden'][] = $provider;
-                }
-            }
-
-            if(isset($this->providers['required']) === true) {
-
-                $result->required	=	join(',', $this->providers['required']);
-
-            }
-            else {
-
-                $result->required = '';
-            }
-
-            if(isset($this->providers['hidden']) === true) {
-
-                $result->hidden	=	join(',', $this->providers['hidden']);
-
-            }
-            else {
-
-                $result->hidden = '';
-            }
-        }
-
-        return $result;
     }
 
     /**
@@ -226,37 +191,18 @@ class Init
      */
     public function setFields($fields) {
 
-        if(is_array($fields) === true) {
-            $this->requiredFields    = $fields;
-        }
-        else {
-            $fields = explode(',', trim($fields));
+        if(empty($fields) === false) {
 
-            foreach($fields as $field) {
-                $this->requiredFields[]  = trim($field);
+            if(is_array($fields) === true) {
+                $this->requiredFields    = implode(',', $fields);
             }
+            else {
+                $this->requiredFields = $fields;
 
+            }
         }
 
         return $this;
-
-    }
-
-    /**
-     * Get user's fields
-     *
-     * @return string
-     */
-    private function getFields() {
-
-        if(is_array($this->requiredFields) === true) {
-            $result	= implode(',', $this->requiredFields);
-        }
-        else {
-            $result = strval($this->requiredFields);
-        }
-
-        return $result;
     }
 
     /**
@@ -276,37 +222,19 @@ class Init
      */
     public function setOptional($fields) {
 
-        if(is_array($fields) === true) {
-            $this->optionalFields    = $fields;
-        }
-        else {
-            $fields = explode(',', trim($fields));
+        if(empty($fields) === false) {
 
-            foreach($fields as $field) {
-                $this->optionalFields[]  = trim($field);
+            if(is_array($fields) === true) {
+                $this->optionalFields    = implode(',', $fields);
             }
+            else {
+                $this->optionalFields = $fields;
 
+            }
         }
 
         return $this;
 
-    }
-
-    /**
-     * Get user's (optional) fields
-     *
-     * @return string
-     */
-    private function getOptional() {
-
-        if(is_array($this->optionalFields) === true) {
-            $result	=	implode(',', $this->optionalFields);
-        }
-        else {
-            $result = strval($this->optionalFields);
-        }
-
-        return $result;
     }
 
     /**
@@ -335,33 +263,22 @@ class Init
      * If the url is not specified and is used to redirect the authorization,
      * the authorization after the current page just updated
      *
-     * @param string $url page that will be implemented to redirect after login
+     * @param string $url page that will be implemented to redirect after login (accept QUERY_STRING)
      * @return $this
      */
-    public function setUrl($url) {
-
-        $this->url = $url;
-
-        return $this;
-    }
-
-    /**
-     * Get redirect url
-     *
-     * @return string
-     */
-    private function getUrl() {
+    public function setUrl($url = '') {
 
         $request = new Request();
 
-        if($this->url === false) {
+        if(empty($url) === true) {
 
             $this->url = $request->getScheme() . '://'. $request->getHttpHost() . (new Router())->getRewriteUri();
         }
         else {
-            $this->url = $request->getScheme() . '://'. $request->getHttpHost().$this->url;
+            $this->url = $request->getScheme() . '://'. $request->getHttpHost().$url;
         }
-        return $this->url;
+
+        return $this;
     }
 
     /**
@@ -469,15 +386,13 @@ class Init
 
         $view = new View();
 
-        $providers = $this->getProviders();
-
         return $view->render(__DIR__.'/../views/ulogin', [
             'widget'    => $this->widget,
-            'fields'    => $this->getFields(),
-            'optional'  => $this->getOptional(),
-            'providers' => $providers->required,
-            'hidden' 	=> $providers->hidden,
-            'url'       => $this->getUrl()
+            'fields'    => $this->requiredFields,
+            'optional'  => $this->optionalFields,
+            'providers' => $this->requiredProviders,
+            'hidden' 	=> $this->hiddenProviders,
+            'url'       => $this->url
         ]);
 
     }
