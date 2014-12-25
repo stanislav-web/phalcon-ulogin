@@ -389,10 +389,10 @@ class Init
 
         $request = new Request();
 
-        if($request->isPost() === true && $request->hasPost('token') === true) {
+        if($request->isPost() === true) {
             $this->token = $request->getPost('token', null, false);
         }
-        else if($request->isGet() === true && $request->has('token') === true) {
+        else if($request->isGet() === true) {
             $this->token = $request->getQuery('token', null, false);
         }
 

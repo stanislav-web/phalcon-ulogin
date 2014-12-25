@@ -26,10 +26,6 @@
     </testsuites>
     <!-- /Setup testsuites -->
 
-    <listeners>
-        <listener file="./phpunit/RunListener.php" class="RunListener" />
-    </listeners>
-
     <filter>
         <blacklist>
             <directory suffix=".php">./build</directory>
