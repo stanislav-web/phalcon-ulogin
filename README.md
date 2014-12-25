@@ -112,9 +112,13 @@ echo (new Auth())->setProviders([
 ```
 
 ## Unit Test
+Also available in /phpunit directory. Run command to start
+```php
+php build/phpunit.phar --configuration phpunit.xml.dist --coverage-text
 ```
-Unavailable
-```
+
+Read logs from phpunit/log
+
 ##[Issues](https://github.com/stanislav-web/phalcon-ulogin/issues "Issues")
 
 ## Screen (For what I use it?)
