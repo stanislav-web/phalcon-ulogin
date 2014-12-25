@@ -144,7 +144,6 @@ class Init
             $this->providers    = $providers;
         }
         else {
-            $this->providers = [];
 
             $providers = explode(',', trim($providers));
 

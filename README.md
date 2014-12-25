@@ -11,6 +11,7 @@ Phalcon ULogin. The authorization form uLogin through social networks
 ## System requirements
 - PHP 5.4.x >
 - Phalcon extension 1.3.x
+- \Phalcon\Session in DI
 
 ## Install
 First update your dependencies through composer. Add to your composer.json:
