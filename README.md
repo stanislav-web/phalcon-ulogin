@@ -1,5 +1,6 @@
 # Phalcon ULogin
-[![Build Status](https://travis-ci.org/stanislav-web/phalcon-ulogin.svg)](https://travis-ci.org/stanislav-web/phalcon-ulogin) [![Code Coverage](https://scrutinizer-ci.com/g/stanislav-web/phalcon-ulogin/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/stanislav-web/phalcon-ulogin/?branch=master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/stanislav-web/phalcon-ulogin/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/stanislav-web/phalcon-ulogin/?branch=master)
+[![Build Status](https://travis-ci.org/stanislav-web/phalcon-ulogin.svg)](https://travis-ci.org/stanislav-web/phalcon-ulogin) [![Code Coverage](https://scrutinizer-ci.com/g/stanislav-web/phalcon-ulogin/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/stanislav-web/phalcon-ulogin/?branch=master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/stanislav-web/phalcon-ulogin/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/stanislav-web/phalcon-ulogin/?branch=master) [![Total Downloads](https://poser.pugx.org/stanislav-web/phalcon-ulogin/downloads.svg)](https://packagist.org/packages/stanislav-web/phalcon-ulogin)
+
 Phalcon ULogin. The authorization form uLogin through social networks
 
 [![ULogin](https://ulogin.ru/img/feat1.png)](https://ulogin.ru)
