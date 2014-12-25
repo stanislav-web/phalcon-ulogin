@@ -33,45 +33,24 @@ class Init
      * Available auth providers. Default has false attribute
      * to disable view on drop down list
      *
-     * @var array
+     * @var string
      */
-    private $providers  = [
-        'vkontakte'     => true,
-        'odnoklassniki' => true,
-        'mailru'        => false,
-        'facebook'      => true,
-        'twitter'       => false,
-        'google'        => true,
-        'yandex'        => true,
-        'livejournal'   => false,
-        'openid'        => false
-    ];
+    private $providers  = 'vkontakte=true,odnoklassniki=true,mailru=false,facebook=true,twitter=false,google=true,
+        yandex=true,livejournal=false,openid=false';
 
     /**
      * Required providers fields.
      *
-     * @var array|string
+     * @var string
      */
-    private $requiredFields  = [
-        'first_name',
-        'last_name',
-        'photo'
-    ];
+    private $requiredFields  = 'first_name,last_name,photo';
 
     /**
      * Optional (additional) fields providers fields.
      *
      * @var array|string
      */
-    private $optionalFields = [
-        'email',
-        'nickname',
-        'bdate',
-        'sex',
-        'photo_big',
-        'city',
-        'country'
-    ];
+    private $optionalFields = 'email,nickname,bdate,sex,photo_big,city,country';
 
     /**
      * Widget types
@@ -141,22 +120,28 @@ class Init
     public function setProviders($providers) {
 
         if(is_array($providers) === true) {
-            $this->providers    = $providers;
-        }
-        else {
 
-            $providers = explode(',', trim($providers));
+            $this->providers = '';
+
+            $providers = explode(',', $providers);
 
             foreach($providers as $provider) {
 
                 if(mb_strpos($provider, "=") !== false) {
 
                     $provider = explode('=', $provider);
-                    $this->providers[$provider[0]]  = ($provider[1] === 'true') ? true : false;
+                    $this->providers .= $provider[0].'='.$provider[1].',';
+                }
+                else {
+                    $this->providers .= $provider.',';
                 }
             }
-
         }
+        else {
+
+            $this->providers    = strval($providers);
+        }
+        rtrim($this->providers, ',');
 
         return $this;
     }
@@ -226,16 +211,11 @@ class Init
      */
     public function setFields($fields) {
 
-        if(is_array($fields) === true) {
-            $this->requiredFields    = $fields;
+        if(is_array($fields) === false) {
+            $this->requiredFields    = strval(trim($fields));
         }
         else {
-            $fields = explode(',', trim($fields));
-
-            foreach($fields as $field) {
-                $this->requiredFields[]  = trim($field);
-            }
-
+            $this->requiredFields = strval(implode(',', $fields));
         }
 
         return $this;
@@ -249,12 +229,7 @@ class Init
      */
     private function getFields() {
 
-        if(is_array($this->requiredFields) === true) {
-            $result	= implode(',', $this->requiredFields);
-        }
-        else {
-            $result = strval($this->requiredFields);
-        }
+        $result = strval($this->requiredFields);
 
         return $result;
     }
@@ -276,20 +251,14 @@ class Init
      */
     public function setOptional($fields) {
 
-        if(is_array($fields) === true) {
-            $this->optionalFields    = $fields;
+        if(is_array($fields) === false) {
+            $this->optionalFields    = strval(trim($fields));
         }
         else {
-            $fields = explode(',', trim($fields));
-
-            foreach($fields as $field) {
-                $this->optionalFields[]  = trim($field);
-            }
-
+            $this->optionalFields = strval(implode(',', $fields));
         }
 
         return $this;
-
     }
 
     /**
@@ -299,14 +268,7 @@ class Init
      */
     private function getOptional() {
 
-        if(is_array($this->optionalFields) === true) {
-            $result	=	implode(',', $this->optionalFields);
-        }
-        else {
-            $result = strval($this->optionalFields);
-        }
-
-        return $result;
+        return $this->optionalFields;
     }
 
     /**
