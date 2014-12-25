@@ -53,11 +53,7 @@ class Parser
                 $array['required'][] = $provider;
 
             }
-            elseif (is_int($provider) === true)   {
-
-                $array['required'][] = $bool;
-
-            } else {
+            else {
 
                 $array['hidden'][] = $provider;
 
