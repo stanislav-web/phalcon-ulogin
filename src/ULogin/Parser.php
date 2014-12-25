@@ -20,16 +20,16 @@ class Parser
      * @access static
      * @return array
      */
-    public static function arrayResolve(array $data) {
+    public static function arrayResolve(array $data)
+    {
 
         $array = [];
 
-        foreach($data as $provider => $bool) {
+        foreach ($data as $provider => $bool) {
 
-            if($bool === true) {
+            if ($bool === true) {
                 $array['required'][] = $provider;
-            }
-            else {
+            } else {
                 $array['hidden'][] = $provider;
             }
         }
@@ -44,26 +44,25 @@ class Parser
      * @access static
      * @return array
      */
-    public static function stringResolve($data) {
+    public static function stringResolve($data)
+    {
 
         $array = [];
 
         $data = explode(',', trim($data));
 
-        foreach($data as $provider) {
+        foreach ($data as $provider) {
 
-            if(mb_strpos($provider, "=") !== false) {
+            if (mb_strpos($provider, "=") !== false) {
 
                 $bool = explode('=', $provider);
 
-                if($bool[1] === 'true') {
+                if ($bool[1] === 'true') {
                     $array['required'][] = $bool[0];
-                }
-                else {
+                } else {
                     $array['hidden'][] = $bool[0];
                 }
-            }
-            else {
+            } else {
                 // collect to required
                 $array['required'][] = $provider;
             }
