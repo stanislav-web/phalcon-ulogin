@@ -124,8 +124,6 @@ class Init
      */
     public function setProviders($providers) {
 
-        $array = [];
-
         if(is_array($providers) === true) {
 
             $array = Parser::arrayResolve($providers);
@@ -137,11 +135,11 @@ class Init
         }
 
         // collection data
-        if(empty($array['required']) === false) {
+        if(isset($array) && empty($array['required']) === false) {
             $this->requiredProviders    = implode(',', $array['required']);
         }
 
-        if(empty($array['hidden']) === false) {
+        if(isset($array) && empty($array['hidden']) === false) {
             $this->hiddenProviders    = implode(',', $array['hidden']);
         }
 
