@@ -46,6 +46,14 @@ class Auth extends Init
             throw new Exception('Session does not configured in DI');
         }
 
+        if($this->session->has(self::KEY) === true) {
+
+            $this->user = $this->session->get(self::KEY);
+        }
+        else {
+            $this->user = false;
+        }
+
         parent::__construct($params);
     }
 
@@ -63,14 +71,6 @@ class Auth extends Init
 
             if($this->session->getId() === '') {
                 $this->session->start();
-            }
-
-            if($this->session->has(self::KEY) === true) {
-
-                $this->user = $this->session->get(self::KEY);
-            }
-            else {
-                $this->user = false;
             }
 
             return true;
