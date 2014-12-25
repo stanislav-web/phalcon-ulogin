@@ -27,7 +27,7 @@ class Init
      * Token key
      * @var boolean
      */
-    protected $token =  false;
+    protected $token = false;
 
     /**
      * Available auth providers. Default has false attribute
@@ -35,16 +35,16 @@ class Init
      *
      * @var array
      */
-    private $providers  =   [
-        'vkontakte'     =>  true,
-        'odnoklassniki' =>  true,
-        'mailru'        =>  false,
-        'facebook'      =>  true,
-        'twitter'       =>  false,
-        'google'        =>  true,
-        'yandex'        =>  true,
-        'livejournal'   =>  false,
-        'openid'        =>  false
+    private $providers  = [
+        'vkontakte'     => true,
+        'odnoklassniki' => true,
+        'mailru'        => false,
+        'facebook'      => true,
+        'twitter'       => false,
+        'google'        => true,
+        'yandex'        => true,
+        'livejournal'   => false,
+        'openid'        => false
     ];
 
     /**
@@ -52,7 +52,7 @@ class Init
      *
      * @var array|string
      */
-    private $requiredFields  =   [
+    private $requiredFields  = [
         'first_name',
         'last_name',
         'photo'
@@ -77,7 +77,7 @@ class Init
      * Widget types
      * @var array
      */
-    protected $types  =   [
+    protected $types  = [
         'small',
         'panel',
         'window'
@@ -87,7 +87,7 @@ class Init
      * Widget. 'small' as default
      * @var string
      */
-    private $widget  =   'small';
+    private $widget  = 'small';
 
     /**
      * Redirect url
@@ -141,7 +141,7 @@ class Init
     public function setProviders($providers) {
 
         if(is_array($providers) === true) {
-            $this->providers    =   $providers;
+            $this->providers    = $providers;
         }
         else {
             $this->providers = [];
@@ -153,7 +153,7 @@ class Init
                 if(mb_strpos($provider, "=") !== false) {
 
                     $provider = explode('=', $provider);
-                    $this->providers[$provider[0]]  =   ($provider[1] === 'true') ? true : false;
+                    $this->providers[$provider[0]]  = ($provider[1] === 'true') ? true : false;
                 }
             }
 
@@ -169,6 +169,8 @@ class Init
      */
     private function getProviders() {
 
+        $result = new \StdClass();
+
         if(is_array($this->providers) === true) {
 
             $providers = $this->providers;
@@ -183,8 +185,6 @@ class Init
                     $this->providers['hidden'][] = $provider;
                 }
             }
-
-            $result = new \StdClass();
 
             if(isset($this->providers['required']) === true) {
 
@@ -203,9 +203,8 @@ class Init
             }
             else {
 
-                $result->hidden ='';
+                $result->hidden = '';
             }
-
         }
 
         return $result;
@@ -229,13 +228,13 @@ class Init
     public function setFields($fields) {
 
         if(is_array($fields) === true) {
-            $this->requiredFields    =   $fields;
+            $this->requiredFields    = $fields;
         }
         else {
             $fields = explode(',', trim($fields));
 
             foreach($fields as $field) {
-                $this->requiredFields[]  =   trim($field);
+                $this->requiredFields[]  = trim($field);
             }
 
         }
@@ -252,7 +251,7 @@ class Init
     private function getFields() {
 
         if(is_array($this->requiredFields) === true) {
-            $result	=	implode(',', $this->requiredFields);
+            $result	= implode(',', $this->requiredFields);
         }
         else {
             $result = strval($this->requiredFields);
@@ -279,13 +278,13 @@ class Init
     public function setOptional($fields) {
 
         if(is_array($fields) === true) {
-            $this->optionalFields    =   $fields;
+            $this->optionalFields    = $fields;
         }
         else {
             $fields = explode(',', trim($fields));
 
             foreach($fields as $field) {
-                $this->optionalFields[]  =   trim($field);
+                $this->optionalFields[]  = trim($field);
             }
 
         }
@@ -358,12 +357,10 @@ class Init
 
         if($this->url === false) {
 
-            $this->url =
-                $request->getScheme() . '://'. $request->getHttpHost() . (new Router())->getRewriteUri();
+            $this->url = $request->getScheme() . '://'. $request->getHttpHost() . (new Router())->getRewriteUri();
         }
         else {
-            $this->url =
-                $request->getScheme() . '://'. $request->getHttpHost().$this->url;
+            $this->url = $request->getScheme() . '://'. $request->getHttpHost().$this->url;
         }
         return $this->url;
     }
@@ -423,7 +420,7 @@ class Init
 
             $url = 'http://ulogin.ru/token.php?token=' . $this->getToken() . '&host=' . (new Request())->getHttpHost();
             $content = file_get_contents($url);
-            $this->user =   json_decode($content, true);
+            $this->user = json_decode($content, true);
 
             // if use has error , destroy user data
             if($this->destroyUserData() === true) {
@@ -457,8 +454,8 @@ class Init
      */
     protected function logout() {
 
-        $this->token    =   false;
-        $this->user     =   false;
+        $this->token    = false;
+        $this->user     = false;
 
         return null;
 

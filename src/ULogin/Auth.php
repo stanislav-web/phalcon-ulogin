@@ -96,5 +96,4 @@ class Auth extends Init
 
         return false;
     }
-
 }
