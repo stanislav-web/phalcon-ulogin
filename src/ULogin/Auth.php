@@ -31,6 +31,9 @@ class Auth extends Init
      * Also, the parameters can be set using the appropriate methods
      *
      * @param array $params
+     * @throws \Phalcon\DI\Exception
+     * @throws \Phalcon\Session\Exception
+     *
      * @return void
      */
     public function __construct(array $params = [])
@@ -39,7 +42,19 @@ class Auth extends Init
             throw new \Phalcon\DI\Exception('DI is not configured!');
         }
 
+        if($this->hasSession() === false) {
+            throw new Exception('Session does not configured in DI');
+        }
+
         parent::__construct($params);
+    }
+
+    /**
+     * Check if \Phalcon\Di has session service
+     *
+     * @return bool
+     */
+    private function hasSession() {
 
         if(DI::getDefault()->has('session') === true) {
 
@@ -57,11 +72,11 @@ class Auth extends Init
             else {
                 $this->user = false;
             }
-        }
-        else {
 
-            throw new Exception('Session does not configured in DI');
+            return true;
         }
+
+        return false;
     }
 
     /**
