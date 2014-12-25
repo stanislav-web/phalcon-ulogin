@@ -38,11 +38,5 @@
         "psr-4": {
             "Test\\ULogin\\": "phpunit/src/ULogin"
         }
-    },
-
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.x-dev"
-        }
     }
 }
