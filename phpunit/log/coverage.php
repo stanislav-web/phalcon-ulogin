@@ -451,51 +451,62 @@ $coverage->setData(array (
       0 => 'Test\\ULogin\\ParserTest::testMethods',
       1 => 'Test\\ULogin\\ParserTest::testStringResolve',
     ),
-    82 => 
+    81 => NULL,
+    92 => 
     array (
       0 => 'Test\\ULogin\\ParserTest::testMethods',
       1 => 'Test\\ULogin\\ParserTest::testStringResolve',
     ),
-    84 => 
-    array (
-      0 => 'Test\\ULogin\\ParserTest::testStringResolve',
-    ),
-    86 => 
-    array (
-      0 => 'Test\\ULogin\\ParserTest::testStringResolve',
-    ),
-    87 => 
-    array (
-      0 => 'Test\\ULogin\\ParserTest::testStringResolve',
-    ),
-    88 => 
-    array (
-      0 => 'Test\\ULogin\\ParserTest::testStringResolve',
-    ),
-    89 => 
-    array (
-      0 => 'Test\\ULogin\\ParserTest::testStringResolve',
-    ),
-    91 => 
-    array (
-      0 => 'Test\\ULogin\\ParserTest::testStringResolve',
-    ),
-    93 => 
+    94 => 
     array (
       0 => 'Test\\ULogin\\ParserTest::testMethods',
       1 => 'Test\\ULogin\\ParserTest::testStringResolve',
     ),
-    95 => 
+    96 => 
     array (
       0 => 'Test\\ULogin\\ParserTest::testMethods',
       1 => 'Test\\ULogin\\ParserTest::testStringResolve',
     ),
-    97 => 
+    98 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testStringResolve',
+    ),
+    100 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testStringResolve',
+    ),
+    101 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testStringResolve',
+    ),
+    102 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testStringResolve',
+    ),
+    103 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testStringResolve',
+    ),
+    105 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testStringResolve',
+    ),
+    107 => 
     array (
       0 => 'Test\\ULogin\\ParserTest::testMethods',
       1 => 'Test\\ULogin\\ParserTest::testStringResolve',
     ),
-    98 => NULL,
+    110 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testMethods',
+      1 => 'Test\\ULogin\\ParserTest::testStringResolve',
+    ),
+    112 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testMethods',
+      1 => 'Test\\ULogin\\ParserTest::testStringResolve',
+    ),
+    114 => NULL,
   ),
 ));
 $coverage->setTests(array (

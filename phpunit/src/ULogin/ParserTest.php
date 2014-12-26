@@ -81,8 +81,8 @@ class ParserTest extends \PHPUnit_Framework_TestCase
 
         $methods = $this->reflection->getMethods(\ReflectionMethod::IS_STATIC);
 
-        $this->assertCount(3, $methods,
-            "[-] The number of static methods of class Parser must equal 3"
+        $this->assertCount(4, $methods,
+            "[-] The number of static methods of class Parser must equal 4"
         );
     }
 
@@ -139,6 +139,7 @@ class ParserTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers ULogin\Parser::stringResolve()
+     * @covers ULogin\Parser::separate()
      */
     public function testStringResolve() {
 

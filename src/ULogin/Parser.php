@@ -73,9 +73,23 @@ class Parser
     public static function stringResolve($data = '')
     {
 
-        $array = [];
-
         $data = explode(',', trim($data));
+
+        $array = self::separate($data);
+
+        return $array;
+    }
+
+    /**
+     * Separate string
+     *
+     * @param $data
+     * @access static
+     * @return array
+     */
+    private static function separate($data)
+    {
+        $array = [];
 
         foreach ($data as $provider) {
 
@@ -92,8 +106,10 @@ class Parser
                 // collect to required
                 $array['required'][] = $provider;
             }
+
         }
 
         return $array;
+
     }
 }
