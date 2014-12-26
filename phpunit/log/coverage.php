@@ -1,7 +1,125 @@
 <?php
 $coverage = new PHP_CodeCoverage;
 $coverage->setData(array (
-  '/Users/stanislavmenshykh/Projects/phalcon-ulogin/src/ULogin/Init.php' => 
+  '/var/www/phalcon-devtools/phalcon.local/vendor/stanislav-web/phalcon-ulogin/src/ULogin/Auth.php' => 
+  array (
+    41 => 
+    array (
+      0 => 'Test\\ULogin\\AuthTest::testConstructor',
+      1 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
+    ),
+    42 => 
+    array (
+      0 => 'Test\\ULogin\\AuthTest::testConstructor',
+    ),
+    43 => NULL,
+    45 => 
+    array (
+      0 => 'Test\\ULogin\\AuthTest::testConstructor',
+      1 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
+    ),
+    46 => 
+    array (
+      0 => 'Test\\ULogin\\AuthTest::testConstructor',
+    ),
+    47 => NULL,
+    49 => 
+    array (
+      0 => 'Test\\ULogin\\AuthTest::testConstructor',
+      1 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
+    ),
+    51 => 
+    array (
+      0 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
+    ),
+    52 => 
+    array (
+      0 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
+    ),
+    54 => 
+    array (
+      0 => 'Test\\ULogin\\AuthTest::testConstructor',
+    ),
+    57 => 
+    array (
+      0 => 'Test\\ULogin\\AuthTest::testConstructor',
+      1 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
+    ),
+    58 => 
+    array (
+      0 => 'Test\\ULogin\\AuthTest::testConstructor',
+      1 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
+    ),
+    67 => 
+    array (
+      0 => 'Test\\ULogin\\AuthTest::testSession',
+      1 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
+    ),
+    70 => 
+    array (
+      0 => 'Test\\ULogin\\AuthTest::testSession',
+      1 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
+    ),
+    72 => 
+    array (
+      0 => 'Test\\ULogin\\AuthTest::testSession',
+      1 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
+    ),
+    73 => 
+    array (
+      0 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
+    ),
+    74 => 
+    array (
+      0 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
+    ),
+    76 => 
+    array (
+      0 => 'Test\\ULogin\\AuthTest::testSession',
+      1 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
+    ),
+    77 => NULL,
+    79 => 
+    array (
+      0 => 'Test\\ULogin\\AuthTest::testSession',
+    ),
+    80 => NULL,
+    94 => 
+    array (
+      0 => 'Test\\ULogin\\AuthTest::testGetUser',
+    ),
+    96 => 
+    array (
+      0 => 'Test\\ULogin\\AuthTest::testGetUser',
+    ),
+    97 => 
+    array (
+      0 => 'Test\\ULogin\\AuthTest::testGetUser',
+    ),
+    98 => 
+    array (
+      0 => 'Test\\ULogin\\AuthTest::testGetUser',
+    ),
+    100 => 
+    array (
+      0 => 'Test\\ULogin\\AuthTest::testGetUser',
+    ),
+    101 => NULL,
+    109 => 
+    array (
+      0 => 'Test\\ULogin\\AuthTest::testLogout',
+    ),
+    110 => 
+    array (
+      0 => 'Test\\ULogin\\AuthTest::testLogout',
+    ),
+    112 => 
+    array (
+      0 => 'Test\\ULogin\\AuthTest::testLogout',
+    ),
+    113 => NULL,
+  ),
+  '/var/www/phalcon-devtools/phalcon.local/vendor/stanislav-web/phalcon-ulogin/src/ULogin/Init.php' => 
   array (
     97 => 
     array (
@@ -190,12 +308,15 @@ $coverage->setData(array (
     258 => NULL,
     268 => 
     array (
+      0 => 'Test\\ULogin\\InitTest::testDestroyUser',
     ),
     269 => 
     array (
+      0 => 'Test\\ULogin\\InitTest::testDestroyUser',
     ),
     270 => 
     array (
+      0 => 'Test\\ULogin\\InitTest::testDestroyUser',
     ),
     271 => 
     array (
@@ -206,19 +327,23 @@ $coverage->setData(array (
     273 => NULL,
     274 => 
     array (
+      0 => 'Test\\ULogin\\InitTest::testDestroyUser',
     ),
     275 => NULL,
     285 => 
     array (
+      0 => 'Test\\ULogin\\InitTest::testToken',
     ),
     287 => 
     array (
+      0 => 'Test\\ULogin\\InitTest::testToken',
     ),
     288 => 
     array (
     ),
     289 => 
     array (
+      0 => 'Test\\ULogin\\InitTest::testToken',
     ),
     290 => 
     array (
@@ -228,6 +353,7 @@ $coverage->setData(array (
     ),
     293 => 
     array (
+      0 => 'Test\\ULogin\\InitTest::testToken',
     ),
     294 => NULL,
     310 => 
@@ -280,12 +406,15 @@ $coverage->setData(array (
     345 => NULL,
     355 => 
     array (
+      0 => 'Test\\ULogin\\InitTest::testLogout',
     ),
     356 => 
     array (
+      0 => 'Test\\ULogin\\InitTest::testLogout',
     ),
     358 => 
     array (
+      0 => 'Test\\ULogin\\InitTest::testLogout',
     ),
     360 => NULL,
     370 => 
@@ -317,125 +446,7 @@ $coverage->setData(array (
     ),
     381 => NULL,
   ),
-  '/Users/stanislavmenshykh/Projects/phalcon-ulogin/src/ULogin/Auth.php' => 
-  array (
-    41 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testConstructor',
-      1 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
-    ),
-    42 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testConstructor',
-    ),
-    43 => NULL,
-    45 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testConstructor',
-      1 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
-    ),
-    46 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testConstructor',
-    ),
-    47 => NULL,
-    49 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testConstructor',
-      1 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
-    ),
-    51 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
-    ),
-    52 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
-    ),
-    54 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testConstructor',
-    ),
-    57 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testConstructor',
-      1 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
-    ),
-    58 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testConstructor',
-      1 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
-    ),
-    67 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testSession',
-      1 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
-    ),
-    70 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testSession',
-      1 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
-    ),
-    72 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testSession',
-      1 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
-    ),
-    73 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
-    ),
-    74 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
-    ),
-    76 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testSession',
-      1 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
-    ),
-    77 => NULL,
-    79 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testSession',
-    ),
-    80 => NULL,
-    94 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testGetUser',
-    ),
-    96 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testGetUser',
-    ),
-    97 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testGetUser',
-    ),
-    98 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testGetUser',
-    ),
-    100 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testGetUser',
-    ),
-    101 => NULL,
-    109 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testLogout',
-    ),
-    110 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testLogout',
-    ),
-    112 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testLogout',
-    ),
-    113 => NULL,
-  ),
-  '/Users/stanislavmenshykh/Projects/phalcon-ulogin/src/ULogin/Parser.php' => 
+  '/var/www/phalcon-devtools/phalcon.local/vendor/stanislav-web/phalcon-ulogin/src/ULogin/Parser.php' => 
   array (
     25 => 
     array (
@@ -602,6 +613,9 @@ $coverage->setTests(array (
   'Test\\ULogin\\AuthTest::testDestroyedSession' => 0,
   'Test\\ULogin\\InitTest::testConstructor' => 0,
   'Test\\ULogin\\InitTest::testSetters' => 0,
+  'Test\\ULogin\\InitTest::testDestroyUser' => 0,
+  'Test\\ULogin\\InitTest::testLogout' => 0,
+  'Test\\ULogin\\InitTest::testToken' => 0,
   'Test\\ULogin\\ParserTest::testMethods' => 0,
   'Test\\ULogin\\ParserTest::testMapArray' => 0,
   'Test\\ULogin\\ParserTest::testArrayResolve' => 0,
@@ -610,12 +624,11 @@ $coverage->setTests(array (
 
 $filter = $coverage->filter();
 $filter->setBlacklistedFiles(array (
-  '/private/var/folders/mj/djg9_yfd1r50n2b9_cn1mpbh0000gn/T/ide-phpunit.php' => true,
 ));
 $filter->setWhitelistedFiles(array (
-  '/Users/stanislavmenshykh/Projects/phalcon-ulogin/src/ULogin/Auth.php' => true,
-  '/Users/stanislavmenshykh/Projects/phalcon-ulogin/src/ULogin/Init.php' => true,
-  '/Users/stanislavmenshykh/Projects/phalcon-ulogin/src/ULogin/Parser.php' => true,
+  '/var/www/phalcon-devtools/phalcon.local/vendor/stanislav-web/phalcon-ulogin/src/ULogin/Auth.php' => true,
+  '/var/www/phalcon-devtools/phalcon.local/vendor/stanislav-web/phalcon-ulogin/src/ULogin/Init.php' => true,
+  '/var/www/phalcon-devtools/phalcon.local/vendor/stanislav-web/phalcon-ulogin/src/ULogin/Parser.php' => true,
 ));
 
 return $coverage;

@@ -143,4 +143,43 @@ class InitTest extends \PHPUnit_Framework_TestCase
             "[-] The return must be instance of ULogin\\Init"
         );
     }
+
+    /**
+     * @covers ULogin\Init::destroyUserData()
+     */
+    public function testDestroyUser() {
+
+        // call method
+        $destroy = $this->invokeMethod($this->init, 'destroyUserData', array());
+
+        $this->assertInternalType('boolean', $destroy,
+            "[-] destroyUserData() method must return boolean"
+        );
+    }
+
+    /**
+     * @covers ULogin\Init::logout()
+     */
+    public function testLogout() {
+
+        // check return
+        $logout = $this->invokeMethod($this->init, 'logout', array());
+
+        $this->assertNull($logout,
+            "[-] logout must return null always"
+        );
+    }
+
+    /**
+     * @covers ULogin\Init::getToken()
+     */
+    public function testToken() {
+
+        // check return token initial
+        $token = $this->init->getToken();
+
+        $this->assertFalse($token,
+            "[-] token property must be init as `false` (bool)"
+        );
+    }
 }
