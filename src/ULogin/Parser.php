@@ -115,7 +115,7 @@ class Parser
      * @param string $provider
      * @param string $delimiter
      * @access static
-     * @return array|bool
+     * @return array|false
      */
     private static function isDelim($provider, $delimiter = '=')
     {
