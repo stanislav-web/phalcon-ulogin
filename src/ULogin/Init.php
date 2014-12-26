@@ -57,7 +57,7 @@ class Init
      *
      * @var string
      */
-    private $optionalFields = 'email, nickname,bdate,sex,photo_big,city,country';
+    private $optionalFields = 'email,nickname,bdate,sex,photo_big,city,country';
 
     /**
      * Widget types
