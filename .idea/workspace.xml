@@ -2,50 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="14d0510e-d692-4429-a571-8d5f7df2837a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/composer.phar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpunit/log/coverage/fonts/glyphicons-halflings-regular.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpunit/log/coverage/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpunit/log/coverage/fonts/glyphicons-halflings-regular.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/phpunit.phar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpunit/log/coverage/Auth.php.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ULogin/Auth.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpunit/src/ULogin/AuthTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpunit/log/coverage/Init.php.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ULogin/Init.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpunit/src/ULogin/InitTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpunit/log/coverage/Parser.php.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ULogin/Parser.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpunit/src/ULogin/ParserTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/autoload.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpunit/log/coverage/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpunit/log/coverage/js/bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpunit/log/coverage.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpunit/log/coverage/js/d3.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpunit/log/coverage/dashboard.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpunit/log/coverage/fonts/glyphicons-halflings-regular.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpunit/log/coverage/js/holder.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpunit/log/coverage/js/html5shiv.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/composer/include_paths.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpunit/log/coverage/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpunit/log/coverage/js/jquery.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpunit/log/coverage/css/nv.d3.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpunit/log/coverage/js/nv.d3.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/phalcon.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpunit.xml.dist" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpunit/log/coverage/js/respond.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpunit/log/coverage/css/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/ulogin.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/phalcon-ulogin.iml" afterPath="$PROJECT_DIR$/.idea/phalcon-ulogin.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.scrutinizer.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="phalcon-ulogin.iws" />
@@ -74,11 +31,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Init.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Init.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ULogin/Init.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.238806" vertical-offset="4249" max-vertical-offset="5790">
+            <state vertical-scroll-proportion="27.666666" vertical-offset="4249" max-vertical-offset="5790">
               <caret line="241" column="26" selection-start-line="241" selection-start-column="23" selection-end-line="241" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".scrutinizer.yml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.scrutinizer.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="3.9908257" vertical-offset="0" max-vertical-offset="2700">
+              <caret line="174" column="46" selection-start-line="174" selection-start-column="46" selection-end-line="174" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -116,7 +83,6 @@
         <option value="$PROJECT_DIR$/phpunit/RunListener.php" />
         <option value="$PROJECT_DIR$/phpunit/bootstrap.php" />
         <option value="$PROJECT_DIR$/phpunit.xml.dist" />
-        <option value="$PROJECT_DIR$/.scrutinizer.yml" />
         <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/src/ULogin/Data.php" />
         <option value="$PROJECT_DIR$/src/views/ulogin.phtml" />
@@ -128,6 +94,7 @@
         <option value="$PROJECT_DIR$/vendor/autoload.php" />
         <option value="$PROJECT_DIR$/phpunit/src/ULogin/AuthTest.php" />
         <option value="$PROJECT_DIR$/phpunit/src/ULogin/InitTest.php" />
+        <option value="$PROJECT_DIR$/.scrutinizer.yml" />
       </list>
     </option>
   </component>
@@ -371,19 +338,19 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22323462" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22323462" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.10543131" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33029613" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10543131" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10543131" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20795454" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25239617" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37220448" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33029613" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33029613" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -656,8 +623,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ULogin/Init.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.238806" vertical-offset="4249" max-vertical-offset="5790">
+        <state vertical-scroll-proportion="27.666666" vertical-offset="4249" max-vertical-offset="5790">
           <caret line="241" column="26" selection-start-line="241" selection-start-column="23" selection-end-line="241" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.scrutinizer.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.9908257" vertical-offset="0" max-vertical-offset="2700">
+          <caret line="174" column="46" selection-start-line="174" selection-start-column="46" selection-end-line="174" selection-end-column="46" />
           <folding />
         </state>
       </provider>
