@@ -56,16 +56,16 @@ You can create an injectable service
 #### setup providers for widget form
 ```php
 echo (new Auth())->setProviders([
-                   'vkontakte'     =>  true,   // show inline 
-                   'odnoklassniki' =>  true,   // show inline 
-                   'facebook'      =>  true,   // show inline 
+                   'vkontakte'     =>  true,   // show inline
+                   'odnoklassniki' =>  true,   // show inline
+                   'facebook'      =>  false,  // show in drop down
                    'google'        =>  false,  // show in drop down
-                   'yandex'        =>  false,  // show in drop down
+                   'yandex'        =>  true,   // show inline
     ])->setType('panel')->getForm();
 ```
 #### or setup providers as string
 ```php
-    echo (new Auth())->setProviders('vkontakte=false,odnoklassniki=true,facebook=true,google=true,yandex=true')->setType('panel')->getForm();
+    echo (new Auth())->setProviders('vkontakte=true,odnoklassniki=true,facebook=false,google=false,yandex=true')->setType('panel')->getForm();
 ```
 #### setup redirect url (current path using as default)
 ```php
@@ -87,12 +87,12 @@ echo (new Auth())->setProviders([
 #### alternate configuration
 ```php
     $ulogin = new Auth(array(
-        'fields'        =>  array('first_name,last_name,photo,city'),
-        'providers'     =>  array('vk=true,mailru=false,linkedin=false'),
-        'url'           =>  array('/auth/?success'),
-        'type'          =>  'panel'
-    ));
-    echo (new Auth())->getForm();
+            'fields'        =>  'first_name,last_name,photo,city',
+            'providers'     =>  'vk=true,mailru=false,linkedin=false',
+            'url'           =>  '/auth/?success',
+            'type'          =>  'window'
+        ));
+    echo $ulogin->getForm();
 ```
 #### get auth data
 ```php
@@ -131,7 +131,7 @@ Read logs from phpunit/log
 
 ##[Issues](https://github.com/stanislav-web/phalcon-ulogin/issues "Issues")
 
-## Screen (For what I use it?)
+## Screen
 ```
-Unavailable
+[![ULogin](http://joxi.ru/v29QgPjcR55v2G.jpg)](https://ulogin.ru)
 ```
