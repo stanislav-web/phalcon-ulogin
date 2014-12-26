@@ -1,0 +1,42 @@
+{
+    "name": "stanislav-web/phalcon-ulogin",
+    "description": "Phalcon ULogin. The authorization form uLogin through social networks",
+    "type": "library",
+    "keywords" : [
+        "phalcon",
+        "phalcon ulogin",
+        "phalcon ulogin widget",
+        "ulogin",
+        "social",
+        "authorization"
+    ],
+    "support": {
+        "issues": "https://github.com/stanislav-web/phalcon-ulogin/issues"
+    },
+    "minimum-stability": "dev",
+    "homepage" : "https://github.com/stanislav-web/phalcon-ulogin",
+    "license" : "GPL-3.0",
+    "authors" : [{
+        "name": "Stanislav WEB",
+        "email": "stanisov@gmail.com",
+        "homepage": "http://reds.com",
+        "role": "Developer"
+    }],
+
+    "require" : {
+        "php" : ">=5.4.0"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "ULogin\\": "src/ULogin"
+        },
+        "classmap": ["phpunit/src/ULogin"]
+    },
+
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\ULogin\\": "phpunit/src/ULogin"
+        }
+    }
+}
