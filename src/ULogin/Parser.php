@@ -89,6 +89,8 @@ class Parser
      */
     private static function separate(array $data)
     {
+        $array = [];
+
         foreach ($data as $provider) {
 
             if (mb_strpos($provider, "=") !== false) {

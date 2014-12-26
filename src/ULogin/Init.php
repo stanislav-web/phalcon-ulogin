@@ -217,8 +217,8 @@ class Init
      */
     public function setType($type)
     {
-        if(is_array($type)) {
-            $type    =   $type[key($type)];
+        if(is_array($type) === true) {
+            $type    = $type[key($type)];
         }
 
         $this->types = array_flip($this->types);
@@ -241,8 +241,8 @@ class Init
      */
     public function setUrl($url = '')
     {
-        if(is_array($url)) {
-            $url    =   $url[key($url)];
+        if(is_array($url) === true) {
+            $url    = $url[key($url)];
         }
 
         $request = new Request();
