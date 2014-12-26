@@ -15,7 +15,7 @@
     },
     "minimum-stability": "dev",
     "homepage" : "https://github.com/stanislav-web/phalcon-ulogin",
-    "license" : "GPL3",
+    "license" : "proprietary",
     "authors" : [{
          "name": "Stanislav WEB",
          "email": "stanisov@gmail.com",
