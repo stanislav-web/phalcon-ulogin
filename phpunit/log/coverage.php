@@ -203,6 +203,9 @@ $coverage->setData(array (
     array (
     ),
     207 => NULL,
+    220 => 
+    array (
+    ),
     221 => 
     array (
     ),
@@ -212,90 +215,93 @@ $coverage->setData(array (
     224 => 
     array (
     ),
-    226 => 
+    225 => 
     array (
     ),
-    228 => 
+    227 => 
     array (
     ),
-    229 => NULL,
-    242 => 
+    229 => 
     array (
     ),
+    231 => 
+    array (
+    ),
+    232 => NULL,
     244 => 
+    array (
+    ),
+    245 => 
     array (
     ),
     246 => 
     array (
     ),
-    247 => 
-    array (
-    ),
     248 => 
     array (
     ),
-    251 => 
+    250 => 
     array (
     ),
-    252 => NULL,
-    262 => 
+    252 => 
     array (
     ),
-    263 => 
+    253 => 
     array (
     ),
-    264 => 
+    254 => 
     array (
     ),
-    265 => 
+    257 => 
     array (
     ),
-    266 => 
-    array (
-    ),
-    267 => NULL,
+    258 => NULL,
     268 => 
     array (
     ),
-    269 => NULL,
-    279 => 
+    269 => 
     array (
     ),
-    281 => 
+    270 => 
     array (
     ),
-    282 => 
+    271 => 
     array (
     ),
-    283 => 
+    272 => 
     array (
     ),
-    284 => 
+    273 => NULL,
+    274 => 
     array (
     ),
+    275 => NULL,
     285 => 
     array (
     ),
     287 => 
     array (
     ),
-    288 => NULL,
-    304 => 
+    288 => 
     array (
     ),
-    306 => 
+    289 => 
     array (
     ),
+    290 => 
+    array (
+    ),
+    291 => 
+    array (
+    ),
+    293 => 
+    array (
+    ),
+    294 => NULL,
     310 => 
     array (
     ),
-    311 => 
-    array (
-    ),
     312 => 
-    array (
-    ),
-    315 => 
     array (
     ),
     316 => 
@@ -307,56 +313,50 @@ $coverage->setData(array (
     318 => 
     array (
     ),
-    320 => 
+    321 => 
     array (
     ),
-    321 => NULL,
-    331 => 
+    322 => 
     array (
     ),
-    332 => 
+    323 => 
     array (
     ),
-    333 => 
+    324 => 
     array (
     ),
-    335 => 
+    326 => 
     array (
     ),
-    336 => NULL,
+    327 => NULL,
+    337 => 
+    array (
+    ),
     338 => 
     array (
     ),
-    339 => NULL,
-    349 => 
+    339 => 
     array (
     ),
-    350 => 
+    341 => 
     array (
     ),
-    352 => 
+    342 => NULL,
+    344 => 
     array (
     ),
-    354 => NULL,
-    364 => 
+    345 => NULL,
+    355 => 
     array (
     ),
-    366 => 
+    356 => 
     array (
     ),
-    367 => 
+    358 => 
     array (
     ),
-    368 => 
-    array (
-    ),
-    369 => 
-    array (
-    ),
+    360 => NULL,
     370 => 
-    array (
-    ),
-    371 => 
     array (
     ),
     372 => 
@@ -365,7 +365,25 @@ $coverage->setData(array (
     373 => 
     array (
     ),
-    375 => NULL,
+    374 => 
+    array (
+    ),
+    375 => 
+    array (
+    ),
+    376 => 
+    array (
+    ),
+    377 => 
+    array (
+    ),
+    378 => 
+    array (
+    ),
+    379 => 
+    array (
+    ),
+    381 => NULL,
   ),
   '/var/www/phalcon-devtools/phalcon.local/vendor/stanislav-web/phalcon-ulogin/src/ULogin/Parser.php' => 
   array (
@@ -464,10 +482,13 @@ $coverage->setData(array (
     ),
     96 => 
     array (
-      0 => 'Test\\ULogin\\ParserTest::testMethods',
-      1 => 'Test\\ULogin\\ParserTest::testStringResolve',
+      0 => 'Test\\ULogin\\ParserTest::testStringResolve',
     ),
     98 => 
+    array (
+      0 => 'Test\\ULogin\\ParserTest::testStringResolve',
+    ),
+    99 => 
     array (
       0 => 'Test\\ULogin\\ParserTest::testStringResolve',
     ),
@@ -479,19 +500,16 @@ $coverage->setData(array (
     array (
       0 => 'Test\\ULogin\\ParserTest::testStringResolve',
     ),
-    102 => 
-    array (
-      0 => 'Test\\ULogin\\ParserTest::testStringResolve',
-    ),
     103 => 
     array (
       0 => 'Test\\ULogin\\ParserTest::testStringResolve',
     ),
     105 => 
     array (
-      0 => 'Test\\ULogin\\ParserTest::testStringResolve',
+      0 => 'Test\\ULogin\\ParserTest::testMethods',
+      1 => 'Test\\ULogin\\ParserTest::testStringResolve',
     ),
-    107 => 
+    108 => 
     array (
       0 => 'Test\\ULogin\\ParserTest::testMethods',
       1 => 'Test\\ULogin\\ParserTest::testStringResolve',
@@ -501,12 +519,7 @@ $coverage->setData(array (
       0 => 'Test\\ULogin\\ParserTest::testMethods',
       1 => 'Test\\ULogin\\ParserTest::testStringResolve',
     ),
-    112 => 
-    array (
-      0 => 'Test\\ULogin\\ParserTest::testMethods',
-      1 => 'Test\\ULogin\\ParserTest::testStringResolve',
-    ),
-    114 => NULL,
+    112 => NULL,
   ),
 ));
 $coverage->setTests(array (

@@ -84,6 +84,16 @@ echo (new Auth())->setProviders([
 ```php
     echo (new Auth())->setFields('first_name,last_name,photo,city')->getForm();
 ```
+#### alternate configuration
+```php
+    $ulogin = new Auth(array(
+        'fields'        =>  array('first_name,last_name,photo,city'),
+        'providers'     =>  array('vk=true,mailru=false,linkedin=false'),
+        'url'           =>  array('/auth/?success'),
+        'type'          =>  'panel'
+    ));
+    echo (new Auth())->getForm();
+```
 #### get auth data
 ```php
     $ulogin = new Auth();

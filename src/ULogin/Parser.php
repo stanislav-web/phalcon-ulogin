@@ -83,14 +83,12 @@ class Parser
     /**
      * Separate string
      *
-     * @param $data
+     * @param array $data
      * @access static
      * @return array
      */
-    private static function separate($data)
+    private static function separate(array $data)
     {
-        $array = [];
-
         foreach ($data as $provider) {
 
             if (mb_strpos($provider, "=") !== false) {

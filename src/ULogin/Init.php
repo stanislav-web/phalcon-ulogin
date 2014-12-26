@@ -99,7 +99,7 @@ class Init
             foreach ($params as $key => $values) {
 
                 if (method_exists($this, 'set' . ucfirst($key)) === true) {
-                    $this->{'set' . ucfirst($key)}($params[$key]);
+                    $this->{'set' . ucfirst($key)}($values);
                 }
             }
 
@@ -217,6 +217,9 @@ class Init
      */
     public function setType($type)
     {
+        if(is_array($type)) {
+            $type    =   $type[key($type)];
+        }
 
         $this->types = array_flip($this->types);
         if (isset($this->types[$type]) === true) {
@@ -238,6 +241,9 @@ class Init
      */
     public function setUrl($url = '')
     {
+        if(is_array($url)) {
+            $url    =   $url[key($url)];
+        }
 
         $request = new Request();
 
