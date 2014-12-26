@@ -132,6 +132,4 @@ Read logs from phpunit/log
 ##[Issues](https://github.com/stanislav-web/phalcon-ulogin/issues "Issues")
 
 ## Screen
-```
 [![ULogin](http://joxi.ru/v29QgPjcR55v2G.jpg)](https://ulogin.ru)
-```
