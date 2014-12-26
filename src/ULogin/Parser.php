@@ -93,23 +93,40 @@ class Parser
 
         foreach ($data as $provider) {
 
-            if (mb_strpos($provider, "=") !== false) {
-
-                $bool = explode('=', $provider);
-
-                if ($bool[1] === 'true') {
-                    $array['required'][] = $bool[0];
-                } else {
-                    $array['hidden'][] = $bool[0];
-                }
-            } else {
-                // collect to required
+            if(($bool = self::isDelim($provider)) === false) {
                 $array['required'][] = $provider;
             }
-
+            else {
+                if ($bool[1] === 'true') {
+                    $array['required'][] = strval($bool[0]);
+                } else {
+                    $array['hidden'][] = strval($bool[0]);
+                }
+            }
         }
 
         return $array;
+
+    }
+
+    /**
+     * Check if data has delimiter
+     *
+     * @param string $provider
+     * @param string $delimiter
+     * @access static
+     * @return array|bool
+     */
+    private static function isDelim($provider, $delimiter = '=')
+    {
+        if (mb_strpos($provider, $delimiter) !== false) {
+
+            $res = explode('=', $provider);
+
+            return $res;
+        }
+
+        return false;
 
     }
 }

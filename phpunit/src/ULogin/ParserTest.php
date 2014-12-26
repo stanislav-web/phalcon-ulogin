@@ -81,8 +81,8 @@ class ParserTest extends \PHPUnit_Framework_TestCase
 
         $methods = $this->reflection->getMethods(\ReflectionMethod::IS_STATIC);
 
-        $this->assertCount(4, $methods,
-            "[-] The number of static methods of class Parser must equal 4"
+        $this->assertCount(5, $methods,
+            "[-] The number of static methods of class Parser must equal 5"
         );
     }
 
@@ -122,7 +122,7 @@ class ParserTest extends \PHPUnit_Framework_TestCase
         $result = Parser::arrayResolve(['vk' => true,'google' => true, 'linkedin' => true]);
 
         $this->assertInternalType('array', $result,
-            "[-] Return type of arrayResolve() must be array if was inject array"
+            "[-] Return type of arrayResolve() must be array if was injected array"
         );
 
         $this->assertArrayHasKey('required', $result,
@@ -139,6 +139,7 @@ class ParserTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers ULogin\Parser::stringResolve()
+     * @covers ULogin\Parser::isDelim()
      * @covers ULogin\Parser::separate()
      */
     public function testStringResolve() {
@@ -147,7 +148,7 @@ class ParserTest extends \PHPUnit_Framework_TestCase
         $result = Parser::stringResolve();
 
         $this->assertInternalType('array', $result,
-            "[-] Return type of stringResolve() must be array if was inject string"
+            "[-] Return type of stringResolve() must be array if was injected string"
         );
 
         $this->assertArrayHasKey('required', $result,
@@ -166,6 +167,16 @@ class ParserTest extends \PHPUnit_Framework_TestCase
         );
 
         $this->assertArrayHasKey('required', $resultTrue,
+            "[-] stringResolve() method should return array with key [required]"
+        );
+
+        $resultWithoutDelim = Parser::stringResolve('vk,linkedin,mailru');
+
+        $this->assertInternalType('array', $resultWithoutDelim,
+            "[-] Return type of stringResolve() must be array if was injected string"
+        );
+
+        $this->assertArrayHasKey('required', $resultWithoutDelim,
             "[-] stringResolve() method should return array with key [required]"
         );
     }
