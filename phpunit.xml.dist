@@ -2,7 +2,7 @@
 <!-- Setup test files and directories -->
 <phpunit    backupGlobals="false"
             backupStaticAttributes="false"
-            bootstrap="./vendor/autoload.php"
+            bootstrap="./phpunit/bootstrap.php"
             cacheTokens="false"
             colors="true"
             convertErrorsToExceptions="true"
@@ -30,7 +30,7 @@
         <blacklist>
             <directory suffix=".php">./build</directory>
             <directory suffix=".php">./vendor</directory>
-            <file>./phpunit/RunListener.php</file>
+            <file>./phpunit/bootstrap.php</file>
         </blacklist>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./src</directory>
