@@ -17,7 +17,7 @@ Phalcon ULogin. The authorization form uLogin through social networks
 First update your dependencies through composer. Add to your composer.json:
 ```python
 "require": {
-    "stanislav-web/phalcon-ulogin": "v1.0-stable"
+    "stanislav-web/phalcon-ulogin": "1.0-stable"
 }
 ```
 ```python
