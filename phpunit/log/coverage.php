@@ -1,7 +1,369 @@
 <?php
 $coverage = new PHP_CodeCoverage;
 $coverage->setData(array (
-  '/var/www/phalcon-devtools/phalcon.local/vendor/stanislav-web/phalcon-ulogin/src/ULogin/Auth.php' => 
+  '/Users/stanislavmenshykh/Projects/phalcon-ulogin/src/ULogin/Init.php' => 
+  array (
+    97 => 
+    array (
+      0 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
+      1 => 'Test\\ULogin\\InitTest::testConstructor',
+    ),
+    99 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testConstructor',
+    ),
+    101 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testConstructor',
+    ),
+    102 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testConstructor',
+    ),
+    103 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testConstructor',
+    ),
+    104 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testConstructor',
+    ),
+    106 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testConstructor',
+    ),
+    107 => 
+    array (
+      0 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
+      1 => 'Test\\ULogin\\InitTest::testConstructor',
+    ),
+    132 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    135 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    136 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    137 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    139 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    140 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    141 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    143 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    144 => NULL,
+    164 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    166 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    167 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    168 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    169 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    172 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    174 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    175 => NULL,
+    195 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    197 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    198 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    199 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    200 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    203 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    205 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    207 => NULL,
+    220 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    221 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    222 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    224 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    225 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    227 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    229 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    231 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    232 => NULL,
+    244 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    245 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    246 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    248 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    250 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    252 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    253 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    254 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    257 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testSetters',
+    ),
+    258 => NULL,
+    268 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testDestroyUser',
+    ),
+    269 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testDestroyUser',
+    ),
+    270 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testDestroyUser',
+    ),
+    271 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testDestroyUser',
+    ),
+    272 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testDestroyUser',
+    ),
+    273 => NULL,
+    274 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testDestroyUser',
+    ),
+    275 => NULL,
+    285 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testToken',
+    ),
+    287 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testToken',
+    ),
+    288 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testToken',
+    ),
+    289 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testToken',
+    ),
+    290 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testToken',
+    ),
+    293 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testToken',
+    ),
+    294 => NULL,
+    310 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testGetUser',
+    ),
+    312 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testGetUser',
+    ),
+    316 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testGetUser',
+    ),
+    317 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testGetUser',
+    ),
+    318 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testGetUser',
+    ),
+    321 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testGetUser',
+    ),
+    322 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testGetUser',
+    ),
+    323 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testGetUser',
+    ),
+    324 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testGetUser',
+    ),
+    326 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testGetUser',
+    ),
+    327 => NULL,
+    337 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testAuthorised',
+    ),
+    338 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testAuthorised',
+    ),
+    339 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testAuthorised',
+    ),
+    341 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testAuthorised',
+    ),
+    342 => NULL,
+    344 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testAuthorised',
+    ),
+    345 => NULL,
+    355 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testLogout',
+    ),
+    356 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testLogout',
+    ),
+    358 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testLogout',
+    ),
+    360 => NULL,
+    370 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testForm',
+    ),
+    372 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testForm',
+    ),
+    373 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testForm',
+    ),
+    374 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testForm',
+    ),
+    375 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testForm',
+    ),
+    376 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testForm',
+    ),
+    377 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testForm',
+    ),
+    378 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testForm',
+    ),
+    379 => 
+    array (
+      0 => 'Test\\ULogin\\InitTest::testForm',
+    ),
+    381 => NULL,
+  ),
+  '/Users/stanislavmenshykh/Projects/phalcon-ulogin/src/ULogin/Auth.php' => 
   array (
     41 => 
     array (
@@ -119,334 +481,7 @@ $coverage->setData(array (
     ),
     113 => NULL,
   ),
-  '/var/www/phalcon-devtools/phalcon.local/vendor/stanislav-web/phalcon-ulogin/src/ULogin/Init.php' => 
-  array (
-    97 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
-      1 => 'Test\\ULogin\\InitTest::testConstructor',
-    ),
-    99 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testConstructor',
-    ),
-    101 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testConstructor',
-    ),
-    102 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testConstructor',
-    ),
-    103 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testConstructor',
-    ),
-    104 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testConstructor',
-    ),
-    106 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testConstructor',
-    ),
-    107 => 
-    array (
-      0 => 'Test\\ULogin\\AuthTest::testDestroyedSession',
-      1 => 'Test\\ULogin\\InitTest::testConstructor',
-    ),
-    132 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    135 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    136 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    137 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    139 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    140 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    141 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    143 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    144 => NULL,
-    164 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    166 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    167 => 
-    array (
-    ),
-    168 => 
-    array (
-    ),
-    169 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    172 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    174 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    175 => NULL,
-    195 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    197 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    198 => 
-    array (
-    ),
-    199 => 
-    array (
-    ),
-    200 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    203 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    205 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    207 => NULL,
-    220 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    221 => 
-    array (
-    ),
-    222 => 
-    array (
-    ),
-    224 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    225 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    227 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    229 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    231 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    232 => NULL,
-    244 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    245 => 
-    array (
-    ),
-    246 => 
-    array (
-    ),
-    248 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    250 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    252 => 
-    array (
-    ),
-    253 => 
-    array (
-    ),
-    254 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    257 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testSetters',
-    ),
-    258 => NULL,
-    268 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testDestroyUser',
-    ),
-    269 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testDestroyUser',
-    ),
-    270 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testDestroyUser',
-    ),
-    271 => 
-    array (
-    ),
-    272 => 
-    array (
-    ),
-    273 => NULL,
-    274 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testDestroyUser',
-    ),
-    275 => NULL,
-    285 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testToken',
-    ),
-    287 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testToken',
-    ),
-    288 => 
-    array (
-    ),
-    289 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testToken',
-    ),
-    290 => 
-    array (
-    ),
-    291 => 
-    array (
-    ),
-    293 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testToken',
-    ),
-    294 => NULL,
-    310 => 
-    array (
-    ),
-    312 => 
-    array (
-    ),
-    316 => 
-    array (
-    ),
-    317 => 
-    array (
-    ),
-    318 => 
-    array (
-    ),
-    321 => 
-    array (
-    ),
-    322 => 
-    array (
-    ),
-    323 => 
-    array (
-    ),
-    324 => 
-    array (
-    ),
-    326 => 
-    array (
-    ),
-    327 => NULL,
-    337 => 
-    array (
-    ),
-    338 => 
-    array (
-    ),
-    339 => 
-    array (
-    ),
-    341 => 
-    array (
-    ),
-    342 => NULL,
-    344 => 
-    array (
-    ),
-    345 => NULL,
-    355 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testLogout',
-    ),
-    356 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testLogout',
-    ),
-    358 => 
-    array (
-      0 => 'Test\\ULogin\\InitTest::testLogout',
-    ),
-    360 => NULL,
-    370 => 
-    array (
-    ),
-    372 => 
-    array (
-    ),
-    373 => 
-    array (
-    ),
-    374 => 
-    array (
-    ),
-    375 => 
-    array (
-    ),
-    376 => 
-    array (
-    ),
-    377 => 
-    array (
-    ),
-    378 => 
-    array (
-    ),
-    379 => 
-    array (
-    ),
-    381 => NULL,
-  ),
-  '/var/www/phalcon-devtools/phalcon.local/vendor/stanislav-web/phalcon-ulogin/src/ULogin/Parser.php' => 
+  '/Users/stanislavmenshykh/Projects/phalcon-ulogin/src/ULogin/Parser.php' => 
   array (
     25 => 
     array (
@@ -613,9 +648,12 @@ $coverage->setTests(array (
   'Test\\ULogin\\AuthTest::testDestroyedSession' => 0,
   'Test\\ULogin\\InitTest::testConstructor' => 0,
   'Test\\ULogin\\InitTest::testSetters' => 0,
+  'Test\\ULogin\\InitTest::testGetUser' => 0,
   'Test\\ULogin\\InitTest::testDestroyUser' => 0,
-  'Test\\ULogin\\InitTest::testLogout' => 0,
   'Test\\ULogin\\InitTest::testToken' => 0,
+  'Test\\ULogin\\InitTest::testAuthorised' => 0,
+  'Test\\ULogin\\InitTest::testForm' => 0,
+  'Test\\ULogin\\InitTest::testLogout' => 0,
   'Test\\ULogin\\ParserTest::testMethods' => 0,
   'Test\\ULogin\\ParserTest::testMapArray' => 0,
   'Test\\ULogin\\ParserTest::testArrayResolve' => 0,
@@ -624,11 +662,12 @@ $coverage->setTests(array (
 
 $filter = $coverage->filter();
 $filter->setBlacklistedFiles(array (
+  '/private/var/folders/mj/djg9_yfd1r50n2b9_cn1mpbh0000gn/T/ide-phpunit.php' => true,
 ));
 $filter->setWhitelistedFiles(array (
-  '/var/www/phalcon-devtools/phalcon.local/vendor/stanislav-web/phalcon-ulogin/src/ULogin/Auth.php' => true,
-  '/var/www/phalcon-devtools/phalcon.local/vendor/stanislav-web/phalcon-ulogin/src/ULogin/Init.php' => true,
-  '/var/www/phalcon-devtools/phalcon.local/vendor/stanislav-web/phalcon-ulogin/src/ULogin/Parser.php' => true,
+  '/Users/stanislavmenshykh/Projects/phalcon-ulogin/src/ULogin/Auth.php' => true,
+  '/Users/stanislavmenshykh/Projects/phalcon-ulogin/src/ULogin/Init.php' => true,
+  '/Users/stanislavmenshykh/Projects/phalcon-ulogin/src/ULogin/Parser.php' => true,
 ));
 
 return $coverage;

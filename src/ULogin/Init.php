@@ -286,7 +286,7 @@ class Init
 
         if ($request->isPost() === true) {
             $this->token = $request->getPost('token', null, false);
-        } else if ($request->isGet() === true) {
+        } else {
             $this->token = $request->getQuery('token', null, false);
         }
 

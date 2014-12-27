@@ -58,6 +58,16 @@ class AuthTest extends \PHPUnit_Framework_TestCase
             return $session;
         });
 
+        $this->di->set('tag', function() {
+            $tag = new \Phalcon\Tag();
+            return $tag;
+        });
+
+        $this->di->set('escaper', function() {
+            $escaper = new \Phalcon\Escaper();
+            return $escaper;
+        });
+
         DI::setDefault($this->di);
 
         $this->reflection = new \ReflectionClass('ULogin\Auth');

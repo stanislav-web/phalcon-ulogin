@@ -1,5 +1,6 @@
 <?php
 namespace Test\ULogin;
+use ULogin\Auth;
 use ULogin\Init;
 
 /**
@@ -13,9 +14,14 @@ use ULogin\Init;
  */
 class InitTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * User status
+     *
+     */
+    private $use;
 
     /**
-     * Auth class object
+     * Init class object
      *
      * @var Init
      */
@@ -109,39 +115,88 @@ class InitTest extends \PHPUnit_Framework_TestCase
     public function testSetters() {
 
         // call method
-        $providers = $this->invokeMethod($this->init, 'setProviders', array('vkontakte=true,odnoklassniki=true,facebook=false,google=false,yandex=true'));
+        $providers = $this->init->setProviders('vkontakte=true,odnoklassniki=true,facebook=false,google=false,yandex=true');
 
         $this->assertInstanceOf('ULogin\Init', $providers,
-            "[-] The return must be instance of ULogin\\Init"
+            "[-] setProviders() return must be instance of ULogin\\Init"
         );
 
         // call method
-        $fields = $this->invokeMethod($this->init, 'setFields', array('first_name,last_name,photo,city'));
+        $fieldsString = $this->init->setFields('first_name,last_name,photo,city');
 
-        $this->assertInstanceOf('ULogin\Init', $fields,
-            "[-] The return must be instance of ULogin\\Init"
+        $this->assertInstanceOf('ULogin\Init', $fieldsString,
+            "[-] setFields() return must be instance of ULogin\\Init"
+        );
+
+        $fieldsArray = $this->init->setFields(array(
+            'first_name',
+            'last_name',
+            'photo',
+            'city'
+        ));
+
+        $this->assertInstanceOf('ULogin\Init', $fieldsArray,
+            "[-] setFields() return must be instance of ULogin\\Init"
         );
 
         // call method
-        $optional = $this->invokeMethod($this->init, 'setOptional', array('first_name,last_name,photo,city'));
 
-        $this->assertInstanceOf('ULogin\Init', $optional,
-            "[-] The return must be instance of ULogin\\Init"
+        $optionalArray = $this->init->setOptional(array(
+            'first_name',
+            'last_name',
+            'photo',
+            'city'
+        ));
+
+        $this->assertInstanceOf('ULogin\Init', $optionalArray,
+            "[-] setOptional() return must be instance of ULogin\\Init"
+        );
+
+        $optionalString = $this->init->setOptional('first_name,last_name,photo,city');
+
+        $this->assertInstanceOf('ULogin\Init', $optionalString,
+            "[-] setOptional() return must be instance of ULogin\\Init"
         );
 
         // call method
-        $type = $this->invokeMethod($this->init, 'setType', array('panel'));
+        $typeString = $this->init->setType('panel');
 
-        $this->assertInstanceOf('ULogin\Init', $type,
-            "[-] The return must be instance of ULogin\\Init"
+        $this->assertInstanceOf('ULogin\Init', $typeString,
+            "[-] setType() return must be instance of ULogin\\Init"
+        );
+
+        $typeArray = $this->init->setType(array('panel'));
+
+        $this->assertInstanceOf('ULogin\Init', $typeArray,
+            "[-] setType() return must be instance of ULogin\\Init"
         );
 
         // call method
-        $url = $this->invokeMethod($this->init, 'setUrl', array('?success'));
+        $urlArray = $this->init->setUrl(array('?success'));
 
-        $this->assertInstanceOf('ULogin\Init', $url,
-            "[-] The return must be instance of ULogin\\Init"
+        $this->assertInstanceOf('ULogin\Init', $urlArray,
+            "[-] setUrl() return must be instance of ULogin\\Init"
         );
+
+        $urlArray = $this->init->setUrl('');
+
+        $this->assertInstanceOf('ULogin\Init', $urlArray,
+            "[-] setUrl() return must be instance of ULogin\\Init"
+        );
+    }
+
+    /**
+     * @covers ULogin\Init::getUser()
+     */
+    public function testGetUser() {
+
+        // call method with  non auth user data
+        $user = $this->init->getUser();
+
+        $this->assertFalse($user,
+            "[-] the first instance of user must equal false"
+        );
+
     }
 
     /**
@@ -155,18 +210,16 @@ class InitTest extends \PHPUnit_Framework_TestCase
         $this->assertInternalType('boolean', $destroy,
             "[-] destroyUserData() method must return boolean"
         );
-    }
 
-    /**
-     * @covers ULogin\Init::logout()
-     */
-    public function testLogout() {
+        // get default property value
+        $reflectionProperty = $this->reflection->getProperty('user');
+        $reflectionProperty->setAccessible(true);
+        $reflectionProperty->setValue($this->init, ['error' => 'Brain Fuck']);
 
-        // check return
-        $logout = $this->invokeMethod($this->init, 'logout', array());
+        $destroy = $this->invokeMethod($this->init, 'destroyUserData', array());
 
-        $this->assertNull($logout,
-            "[-] logout must return null always"
+        $this->assertTrue($destroy,
+            "[-] destroyUserData() return true when destroyed user session or getting error"
         );
     }
 
@@ -181,5 +234,70 @@ class InitTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($token,
             "[-] token property must be init as `false` (bool)"
         );
+
+        // test POST
+        $_SERVER['REQUEST_METHOD']  =   'POST';
+        $token = $this->init->getToken();
+
+        $this->assertFalse($token,
+            "[-] token property must be init as `false` (bool)"
+        );
+    }
+
+    /**
+     * @covers ULogin\Init::isAuthorised()
+     */
+    public function testAuthorised() {
+
+        // first call
+        $auth =  $this->init->isAuthorised();
+
+        $this->assertFalse($auth,
+            "[-] Auth user status must be init as `false` on first state"
+        );
+
+        $reflectionProperty = $this->reflection->getProperty('user');
+        $reflectionProperty->setAccessible(true);
+        $this->user = $reflectionProperty->setValue($this->init, [
+            'first_name'    => 'Brain',
+            'last_name'     => 'Fuck',
+            'sex'           => '2',
+        ]);
+        // check auth
+        $auth =  $this->init->isAuthorised();
+
+        $this->assertTrue($auth,
+            "[-] Success user auth must return true"
+        );
+
+    }
+
+    /**
+     * @covers ULogin\Init::getForm()
+     */
+    public function testForm() {
+
+        // call method
+        $form =  (new Auth())->getForm();
+
+        $this->assertInternalType('string', $form,
+            "[-] (new Auth())->getForm() must return string"
+        );;
+
+    }
+
+    /**
+     * @covers ULogin\Init::logout()
+     */
+    public function testLogout() {
+
+        // check return
+        $logout = $this->invokeMethod($this->init, 'logout', array());
+
+        $this->assertNull($logout,
+            "[-] logout must return null always"
+        );
+
+
     }
 }
