@@ -33,8 +33,6 @@ class Auth extends Init
      * @param array $params
      * @throws \Phalcon\DI\Exception
      * @throws \Phalcon\Session\Exception
-     *
-     * @return void
      */
     public function __construct(array $params = [])
     {
