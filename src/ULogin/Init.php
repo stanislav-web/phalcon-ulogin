@@ -90,7 +90,6 @@ class Init
      * Also, the parameters can be set using the appropriate methods
      *
      * @param array $params
-     * @return void
      */
     public function __construct(array $params = [])
     {
